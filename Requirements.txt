@@ -1,0 +1,10 @@
+# Genomic Audit & Pathogen Source Tracker Requirements
+streamlit>=1.50
+numpy
+matplotlib
+tqdm
+pandas
+xlsxwriter
+pyahocorasick
+psutil
+requests

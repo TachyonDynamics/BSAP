@@ -1,0 +1,8 @@
+Clinical_Samples/
+Industrial_Sources/
+Reference_Archive/
+Forensic_Results/
+.venv/
+.git/
+__pycache__/
+*.pyc

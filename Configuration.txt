@@ -1,0 +1,94 @@
+# =============================================================================
+# BSAP — Bio Security Auditing Platform — Configuration.txt (RELEASE DEFAULTS)
+# =============================================================================
+# Format: KEY=VALUE  (no spaces around =)
+# Lines starting with # are comments.
+#
+# After editing: restart Streamlit or re-run `python Alpha4.py`.
+# Most ENABLE_* flags only affect the NEXT audit.
+#
+# Keep a private copy of your stress profile as Configuration.local.txt
+# (gitignored) if you need different settings at home.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# MODE & ACCURACY
+# -----------------------------------------------------------------------------
+TEST_MODE=0
+MATCH_THRESHOLD=100
+
+# Evidence / BED / triage gate (bp). 24 = release. 12–18 for plasmid-only review.
+FORENSIC_EVIDENCE_MIN_LEN=24
+
+# Optional: only these tags enter evidence/BED/flanks (empty = all tags).
+# Example: CHASSIS_ORIGIN,SEAMLESS_ASSEMBLY,ANTIBIOTIC_RES,VIRAL_ORIGIN,LAB_MARKER
+EVIDENCE_TAG_ALLOWLIST=
+
+# -----------------------------------------------------------------------------
+# FLANKS (Phase 2 context)
+# -----------------------------------------------------------------------------
+FLANK_SIZE=48
+FLANK_AUTO=24
+MIN_FLANK_LEN=24
+FLANK_MAX_MISMATCH=0
+FLANK_MIN_IDENTITY=0.0
+REF_DISTANCE_SIDECAR=0
+REF_DISTANCE_CLIQUE_ONLY=1
+REF_DISTANCE_WINDOW=12
+PAIR_WINDOW_BP=5000
+
+# -----------------------------------------------------------------------------
+# COMPOSITION PATH (density / CG-like motifs — separate from forensic evidence)
+# -----------------------------------------------------------------------------
+COMPOSITION_FAST_ONLY=1
+COMPOSITION_AC_MIN_LEN=6
+COMPOSITION_OMIT_ULTRA_SHORT=1
+STORE_COMPOSITION_POSITIONS=0
+WATERFALL_INCLUDE_COMPOSITION=0
+
+# -----------------------------------------------------------------------------
+# PERFORMANCE
+# -----------------------------------------------------------------------------
+MAX_CORES=4
+LARGE_FILE_THRESHOLD_MB=100
+LARGE_FILE_MAX_HITS=250000
+DB_PRELOAD_LIMIT_MB=128
+SCAN_STEP=1
+
+# -----------------------------------------------------------------------------
+# OUTPUT TOGGLES (safe defaults for first-time users)
+# -----------------------------------------------------------------------------
+ENABLE_COORDINATE_EXPORT=1
+ENABLE_HEATMAPS=1
+ENABLE_SONIFICATION=0
+ENABLE_BIOPHYSICS=0
+ENABLE_CIRCUIT=0
+ENABLE_CODON_BIAS=0
+ENABLE_RF_HEURISTICS=0
+
+# Optional Physics heuristics (all labeled HEURISTIC in evidence; off by default)
+ENABLE_ZETA_HEURISTICS=0
+ENABLE_DIELECTRIC_HEURISTICS=0
+ENABLE_CODON_FOOTPRINT_HEURISTICS=0
+ENABLE_MOLECULE_TYPE_HEURISTICS=0
+ENABLE_FREQ_CONTEXT_HEURISTICS=0
+ENABLE_ACOUSTIC_HEURISTICS=0
+ENABLE_ALT_MASS_HEURISTICS=0
+
+SPECTROGRAM_RC=0
+SPECTROGRAM_FLANKS=0
+
+# -----------------------------------------------------------------------------
+# TARGETS / BOOTSTRAP
+# -----------------------------------------------------------------------------
+TARGETS_PANEL=full
+SYNC_ON_START=0
+ARCHIVE_PREVIOUS_RUNS=1
+
+# -----------------------------------------------------------------------------
+# NOTES
+# -----------------------------------------------------------------------------
+# triage_score = long_hits(>= FORENSIC_EVIDENCE_MIN_LEN) + 5*unique_tags + Phase-2 flanks
+# RUN_CONFIG_STAMP.json is written automatically each audit.
+# Stress / human T2T tip: keep FORENSIC_EVIDENCE_MIN_LEN=24, COMPOSITION_FAST_ONLY=1.
+# Plasmid deep review tip: FORENSIC_EVIDENCE_MIN_LEN=12–18, more ENABLE_* as needed.

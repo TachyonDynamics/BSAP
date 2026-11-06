@@ -1,0 +1,679 @@
+{
+    "FORENSIC_MARKERS": {
+        "--- SYSTEM VALIDATION (ORANGES/GOLD) ---": {},
+        "TEST_MARKER": {
+            "seq": "ATGCGCACCTTTAGC",
+            "color": "#FFD700",
+            "tag": "TEST_VALIDATION",
+            "role": "forensic"
+        },
+        "--- RESTRICTION SCARS (BLUES) ---": {},
+        "BsaI_Scar": {
+            "seq": "GGTCTC",
+            "color": "#ADD8E6",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BsmBI_Scar": {
+            "seq": "CGTCTC",
+            "color": "#00008B",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "NotI_Site": {
+            "seq": "GCGGCCGC",
+            "color": "#4169E1",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BamHI_Site": {
+            "seq": "GGATCC",
+            "color": "#1E90FF",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "--- SEAMLESS & SYNTHETIC LINKERS (PURPLES) ---": {},
+        "Gibson_Overlap": {
+            "seq": "GGTGGCGGTGGCTCGGGCGGTGGTGGG",
+            "color": "#800080",
+            "tag": "SEAMLESS_ASSEMBLY",
+            "role": "forensic"
+        },
+        "attB1_Gateway": {
+            "seq": "ACAAGTTTGTACAAAAAAGCAGGCT",
+            "color": "#9932CC",
+            "tag": "GATEWAY_CLONING",
+            "role": "forensic"
+        },
+        "27nt_Bridge": {
+            "seq": "CCTCGGCGGGCACGGTCAGTTGCTTCA",
+            "color": "#DA70D6",
+            "tag": "SYNTHETIC_LINKER",
+            "role": "forensic"
+        },
+        "Engineered_Linker": {
+            "seq": "GGTGGCGGTGGCTCG",
+            "color": "#EE82EE",
+            "tag": "SYNTHETIC_LINKER",
+            "role": "forensic"
+        },
+        "Tn5_IR": {
+            "seq": "CTGACTCTTATACACAAGT",
+            "color": "#BA55D3",
+            "tag": "MOBILE_ELEMENT",
+            "role": "forensic"
+        },
+        "Tn10_IR": {
+            "seq": "CTTGATCCCAGCTTGATA",
+            "color": "#9400D3",
+            "tag": "MOBILE_ELEMENT",
+            "role": "forensic"
+        },
+        "--- EXPRESSION SYSTEMS (GREENS) ---": {},
+        "T7_Promoter_Mutant": {
+            "seq": "TAATACGACTCACTATATAGGG",
+            "color": "#006400",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "T7_Promoter": {
+            "seq": "TAATACGACTCACTATAGGG",
+            "color": "#006400",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "SP6_Promoter": {
+            "seq": "ATTTAGGTGACACTATAG",
+            "color": "#2E8B57",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "SV40_Promoter": {
+            "seq": "CCCGCCCCTAACTCCGCCC",
+            "color": "#228B22",
+            "tag": "VACCINE_VECTOR",
+            "role": "forensic"
+        },
+        "GAL1_Promoter": {
+            "seq": "ATAGTTTTTTTTCTTCCT",
+            "color": "#32CD32",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "AOX1_Site": {
+            "seq": "TTATTCGAAACGGGAAT",
+            "color": "#00FA9A",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "P35S_Promoter": {
+            "seq": "CCACAGATGGTTAGAGAGG",
+            "color": "#ADFF2F",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "CYC1_Terminator": {
+            "seq": "TGCAGCCCAAGCTT",
+            "color": "#90EE90",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "NOS_Terminator": {
+            "seq": "GAATCCTGTTGCCGGTCTTG",
+            "color": "#00FF7F",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "T7_Terminator": {
+            "seq": "GCTAGTTATTGCTCAGCGG",
+            "color": "#2E8B57",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "--- HIGH RISK / EDITING (REDS) ---": {},
+        "Furin_Cleavage": {
+            "seq": "CCTCGGCGGGCA",
+            "color": "#FF0000",
+            "tag": "WRC_SENSITIVE",
+            "role": "forensic"
+        },
+        "NLS_Signal": {
+            "seq": "CCAAAAAAAAAAGAAAGGT",
+            "color": "#8B0000",
+            "tag": "GOF_UPGRADE",
+            "role": "forensic"
+        },
+        "CRISPR_Target": {
+            "seq": "GTTTTAGAGCTAGAAATAGC",
+            "color": "#FF4500",
+            "tag": "GENETIC_MOD",
+            "role": "forensic"
+        },
+        "Lenti_LTR": {
+            "seq": "ACTTGAAAGCGAAAGGGAAAC",
+            "color": "#B22222",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic"
+        },
+        "RRE_Element": {
+            "seq": "AGGAGCTTTGTTCCTTGG",
+            "color": "#800000",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic"
+        },
+        "--- REPORTERS & TAGS (PINKS) ---": {},
+        "EGFP_Marker": {
+            "seq": "ATGGTGAGCAAGGGCGAGGAG",
+            "color": "#FF69B4",
+            "tag": "REPORTER_GENE",
+            "role": "forensic"
+        },
+        "mCherry_Ghost": {
+            "seq": "CCTGTCCCCAATTCCTTG",
+            "color": "#FF1493",
+            "tag": "REPORTER_GENE",
+            "role": "forensic"
+        },
+        "His_Tag_6x": {
+            "seq": "CATCACCATCACCATCAC",
+            "color": "#C71585",
+            "tag": "PURIFICATION_TAG",
+            "role": "forensic"
+        },
+        "FLAG_Tag": {
+            "seq": "GACTACAAAGACGATGACGACAAG",
+            "color": "#D87093",
+            "tag": "PURIFICATION_TAG",
+            "role": "forensic"
+        },
+        "HA_Tag": {
+            "seq": "TACCCATACGATGTTCCAGATTACGCT",
+            "color": "#DB7093",
+            "tag": "PURIFICATION_TAG",
+            "role": "forensic"
+        },
+        "BGH_PolyA": {
+            "seq": "AATAAAAGATCTTTATTTTCA",
+            "color": "#FFB6C1",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "--- CHASSIS & ORIGINS (ORANGES/GOLD) ---": {},
+        "pET_Origin": {
+            "seq": "TTGGTATGGCTTCATTCAGCT",
+            "color": "#FF4500",
+            "tag": "INDUSTRIAL_BACKBONE",
+            "role": "forensic"
+        },
+        "pUC_Origin": {
+            "seq": "GCTTGGTATGGCTTCATTCAG",
+            "color": "#FF8C00",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic"
+        },
+        "f1_Origin": {
+            "seq": "AGCCGGAAGCATAAAGTGTAA",
+            "color": "#FFA500",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic"
+        },
+        "pBR322_Ori": {
+            "seq": "TTTCCGTGTCGCCCTTATTCC",
+            "color": "#FFD700",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic"
+        },
+        "SV40_Origin": {
+            "seq": "TTTTGCAAAAGCCTAGGCCTCCAAAAAAGCC",
+            "color": "#DAA520",
+            "tag": "VIRAL_ORIGIN",
+            "role": "forensic"
+        },
+        "--- SELECTION MARKERS (GRAYS) ---": {},
+        "KanR_Marker": {
+            "seq": "ATGATTGAACAAGATGGATTG",
+            "color": "#2F4F4F",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic"
+        },
+        "AmpR_Marker": {
+            "seq": "TTACCAATGCTTAATCAGTGAG",
+            "color": "#696969",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic"
+        },
+        "Zeocin_Res": {
+            "seq": "GCCAAGTTGACCAGTGCCGT",
+            "color": "#808080",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic"
+        },
+        "--- RNA STRUCTURAL (TEALS) ---": {},
+        "PolyA_Signal": {
+            "seq": "AATAAA",
+            "color": "#008080",
+            "tag": "RNA_STABILITY",
+            "role": "composition"
+        },
+        "IRES_Element": {
+            "seq": "GTTTTCCTTTGAAAACACG",
+            "color": "#20B2AA",
+            "tag": "TRANSLATION_INIT",
+            "role": "forensic"
+        },
+        "WPRE_Element": {
+            "seq": "AATCAACCTCTGGATTACAAA",
+            "color": "#48D1CC",
+            "tag": "VIRAL_EXPORT",
+            "role": "forensic"
+        },
+        "MS2_Stem_Loop": {
+            "seq": "ACATGAGGATCACCCATGT",
+            "color": "#00CED1",
+            "tag": "RNA_SCAFFOLD",
+            "role": "forensic"
+        },
+        "--- HUMAN EDITING & EPIGENETIC (TOMATO / MEDIUM PURPLE) ---": {},
+        "SpCas9_PAM_NGG": {
+            "seq": "NGG",
+            "color": "#FF6347",
+            "tag": "HUMAN_EDIT",
+            "role": "composition"
+        },
+        "SpCas9_gRNA_scaffold": {
+            "seq": "GTTTTAGAGCTAGAAATAGCAAGTTAAAATAAGGCTAGTCCGTTATCAACTTGAAAAAGTGGCACCGAGTCGGTGCTTTT",
+            "color": "#FF6347",
+            "tag": "HUMAN_EDIT",
+            "role": "forensic"
+        },
+        "AsCas12a_PAM": {
+            "seq": "TTTV",
+            "color": "#FF7F50",
+            "tag": "HUMAN_EDIT",
+            "role": "composition"
+        },
+        "BaseEditor_ABE": {
+            "seq": "ACCGGTCGCCACCATG",
+            "color": "#FF4500",
+            "tag": "HUMAN_EDIT",
+            "role": "forensic"
+        },
+        "PrimeEdit_pegRNA_PBS": {
+            "seq": "GCACCGACTCGGTGCCACTTTTTCAAGTTGATAACGGACTAGCCTTATTTTAACTTGCTATTTCTAGCTCTAAAAC",
+            "color": "#FF6347",
+            "tag": "HUMAN_EDIT",
+            "role": "forensic"
+        },
+        "CpG_Island_Core": {
+            "seq": "CGCGCGCG",
+            "color": "#9370DB",
+            "tag": "EPIGENETIC_SITE",
+            "role": "composition"
+        },
+        "TET_Oxidation_Motif": {
+            "seq": "CGCG",
+            "color": "#3F007A",
+            "tag": "EPIGENETIC_SITE",
+            "role": "composition"
+        },
+        "DNMT_Target_CG": {
+            "seq": "CG",
+            "color": "#9932CC",
+            "tag": "EPIGENETIC_SITE",
+            "role": "composition"
+        },
+        "--- ADDITIONAL EXPRESSION / VECTORS ---": {},
+        "CMV_Promoter": {
+            "seq": "CGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAATAATGACG",
+            "color": "#228B22",
+            "tag": "VACCINE_VECTOR",
+            "role": "forensic"
+        },
+        "EF1a_Promoter": {
+            "seq": "GGCTCCGGTGCCCGTCAGTGGGCAGAGCGCACATCGCCCACAGTCCCCGAGAAGTTGGGGGGAGGGGTCGGCAATTG",
+            "color": "#2E8B57",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "CAG_Promoter": {
+            "seq": "GCGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAAT",
+            "color": "#3CB371",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "U6_Promoter": {
+            "seq": "GAGGGCCTATTTCCCATGATTCCTTCATATTTGCATATACGATACAAGGCTGTTAGAGAGATAATTGGAATTAATTTGACTGTAAACACAAAGATATTAGTACAAAATACGTGACGTAGAAAGTAATAATTTCTTGGGTAGTTTGCAGTTTTAAAATTATGTTTTAAAATGGACTATCATATGCTTACCGTAACTTGAAAGTATTTCGATTTCTTGGCTTTATATATCTTGTGGAAAGGACG",
+            "color": "#00FF7F",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "bGH_PolyA_Full": {
+            "seq": "CTGTGCCTTCTAGTTGCCAGCCATCTGTTGTTTGCCCCTCCCCCGTGCCTTCCTTGACCCTGGAAGGTGCCACTCCCACTGTCCTTTCCTAATAAAATGAGGAAATTGCATCGCATTGTCTGAGTAGGTGTCATTCTATTCTGGGGGGTGGGGTGGGGCAGGACAGCAAGGGGGAGGATTGGGAAGACAATAGCAGGCATGCTGGGGATGCGGTGGGCTCTATGG",
+            "color": "#FFB6C1",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "SV40_PolyA": {
+            "seq": "AACGTTATCGGATCCAGACATGATAAGATACATTGATGAGTTTGGACAAACCACAACTAGAATGCAGTGAAAAAAATGCTTTATTTGTGAAATTTGTGATGCTATTGCTTTATTTGTAACCATTATAAGCTGCAATAAACAAGTTAACAACAACAATTGCATTCATTTTATGTTTCAGGTTCAGGGGGAGGTGTGGGAGGTTTTTT",
+            "color": "#FFC0CB",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "IRES_EMCV": {
+            "seq": "CCCCCCCCCCTAACGTTACTGGCCGAAGCCGCTTGGAATAAGGCCGGTGTGCGTTTGTCTATATGTTATTTTCCACCATATTGCCGTCTTTTGGCAATGTGAGGGCCCGGAAACCTGGCCCTGTCTTCTTGACGAGCATTCCTAGGGGTCTTTCCCCTCTCGCCAAAGGAATGCAAGGTCTGTTGAATGTCGTGAAGGAAGCAGTTCCTCTGGAAGCTTCTTGAAGACAAACAACGTCTGTAGCGACCCTTTGCAGGCAGCGGAACCCCCCACCTGGCGACAGGTGCCTCTGCGGCCAAAAGCCACGTGTATAAGATACACCTGCAAAGGCGGCACAACCCCAGTGCCACGTTGTGAGTTGGATAGTTGTGGAAAGAGTCAAATGGCTCTCCTCAAGCGTATTCAACAAGGGGCTGAAGGATGCCCAGAAGGTACCCCATTGTATGGGATCTGATCTGGGGCCTCGGTGCACATGCTTTACATGTGTTTAGTCGAGGTTAAAAAAACGTCTAGGCCCCCCGAACCACGGGGACGTGGTTTTCCTTTGAAAAACACGATGATAATATGGCCACAACC",
+            "color": "#20B2AA",
+            "tag": "TRANSLATION_INIT",
+            "role": "forensic"
+        },
+        "P2A_Linker": {
+            "seq": "GCTACTAACTTCAGCCTGCTGAAGCAGGCTGGAGACGTGGAGGAGAACCCTGGACCT",
+            "color": "#EE82EE",
+            "tag": "SYNTHETIC_LINKER",
+            "role": "forensic"
+        },
+        "T2A_Linker": {
+            "seq": "GAGGGCAGAGGAAGTCTTCTAACATGCGGTGACGTGGAGGAGAATCCCGGCCCT",
+            "color": "#DA70D6",
+            "tag": "SYNTHETIC_LINKER",
+            "role": "forensic"
+        },
+        "Kozak_Consensus": {
+            "seq": "GCCACCATGG",
+            "color": "#00FA9A",
+            "tag": "LAB_MARKER",
+            "role": "composition"
+        },
+        "Shine_Dalgarno": {
+            "seq": "AGGAGG",
+            "color": "#32CD32",
+            "tag": "LAB_MARKER",
+            "role": "composition"
+        },
+        "--- ADDITIONAL RESTRICTION / ASSEMBLY ---": {},
+        "EcoRI_Site": {
+            "seq": "GAATTC",
+            "color": "#87CEEB",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "HindIII_Site": {
+            "seq": "AAGCTT",
+            "color": "#4682B4",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "XbaI_Site": {
+            "seq": "TCTAGA",
+            "color": "#5F9EA0",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "NdeI_Site": {
+            "seq": "CATATG",
+            "color": "#6495ED",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "XhoI_Site": {
+            "seq": "CTCGAG",
+            "color": "#00BFFF",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "SapI_Scar": {
+            "seq": "GCTCTTC",
+            "color": "#1E90FF",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BbsI_Scar": {
+            "seq": "GAAGAC",
+            "color": "#4169E1",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BglII_Site": {
+            "seq": "AGATCT",
+            "color": "#0000CD",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "--- ADDITIONAL SELECTION / REPORTERS ---": {},
+        "ChlorR_Marker": {
+            "seq": "ATGGAGAAAAAAATCACTGGATATACCACCGTTGATATATCCCAATGGCATCGTAAAGAACATTTTGAGGCATTTCAGTCAGTTGCTCAATGTACCTATAACCAGACCGTTCAGCTGGATATTACGGCCTTTTTAAAGACCGTAAAGAAAAATAAGCACAAGTTTTATCCGGCCTTTATTCACATTCTTGCCCGCCTGATGAATGCTCATCCGGAATTCCGTATGGCAATGAAAGACGGTGAGCTGGTGATATGGGATAGTGTTCACCCTTGTTACACCGTTTTCCATGAGCAAACTGAAACGTTTTCATCGCTCTGGAGTGAATACCACGACGATTTCCGGCAGTTTCTACACATATATTCGCAAGATGTGGCGTGTTACGGTGAAAACCTGGCCTATTTCCCTAAAGGGTTTATTGAGAATATGTTTTTCGTCTCAGCCAATCCCTGGGTGAGTTTCACCAGTTTTGATTTAAACGTGGCCAATATGGACAACTTCTTCGCCCCCGTTTTCACCATGGGCAAATATTATACGCAAGGCGACAAGGTGCTGATGCCGCTGGCGATTCAGGTTCATCATGCCGTCTGTGATGGCTTCCATGTCGGCAGAATGCTTAATGAATTACAACAGTACTGCGATGAGTGGCAGGGCGGGGCGTAA",
+            "color": "#708090",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic"
+        },
+        "BlastR_Marker": {
+            "seq": "ATGGCCAAGCCTTTGTCTCAAGAAGAATCCACCCTCATTGAAAGAGCAACGGCTACAATCAACAGCATCCCCATCTCTGAAGACTACAGCGTCGCCAGCGCAGCTCTCTCTAGCGACGGCCGCATCTTCACTGGCGTGAATGTATATCATTTTACTGGGGGACCTTGTGCAGAACTCGTGGTGCTGGGCACTGCTGCTGCTGCGGCAGCTGGCAACCTGACTTGTATCGTCGCGATCGGAAATGAGAACAGGGGCATCTTGAGCCCCTGCGGACGGTGCCGACAGGTGCTTCTCGATCTGCATCCTGGGATCAAAGCCATAGTGAAGGACAGTGATGGACAGCCGACGGCAGTTGGGATTCGTGAATTGCTGCCCTCTGGTTATGTGTGGGAGGGCTAA",
+            "color": "#778899",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic"
+        },
+        "Luciferase_Firefly": {
+            "seq": "ATGGAAGACGCCAAAAACATAAAGAAAGGCCCGGCGCCATTCTATCCGCTGGAAGATGGAACCGCTGGAGAGCAACTGCATAAGGCTATGAAGAGATACGCCCTGGTTCCTGGAACAATTGCTTTTACAGATGCACATATCGAGGTGGACATCACTTACGCTGAGTACTTCGAAATGTCCGTTCGGTTGGCAGAAGCTATGAAACGATATGGGCTGAATACAAATCACAGAATCGTCGTATGCAGTGAAAACTCTCTTCAATTCTTTATGCCGGTGTTGGGCGCGTTATTTATCGGAGTTGCAGTTGCGCCCGCGAACGACATTTATAATGAACGTGAATTGCTCAACAGTATGAACATTTCGCAGCCTACCGTAGTGTTTGTTTCCAAAAAGGGGTTGCAAAAAATTTTGAACGTGCAAAAAAAATTACCAATAATCCAGAAAATTATTATCATGGATTCTAAAACGGATTACCAGGGATTTCAGTCGATGTACACGTTCGTCACATCTCATCTACCTCCCGGTTTTAATGAATACGATTTTGTACCAGAGTCCTTTGATCGTGACAAAACAATTGCACTGATAATGAATTCCTCTGGATCTACTGGGTTACCTAAGGGTGTGGCCCTTCCGCATAGAACTGCCTGCGTCAGATTCTCGCATGCCAGAGATCCTATTTTTGGCAATCAAATCATTCCGGATACTGCGATTTTAAGTGTTGTTCCATTCCATCACGGTTTTGGAATGTTTACTACACTCGGATATTTGATATGTGGATTTCGAGTCGTCTTAATGTATAGATTTGAAGAAGAGCTGTTTCTGAGGAGCCTTCAGGATTACAAGATTCAAAGTGCGCTGCTGGTGCCAACCCTATTCTCCTTCTTCGCCAAAAGCACTCTGATTGACAAATACGATTTATCTAATTTACACGAAATTGCTTCTGGTGGCGCTCCCCTCTCTAAGGAAGTCGGGGAAGCGGTTGCCAAGAGGTTCCATCTGCCAGGTATCAGGCAAGGATATGGGCTCACTGAGACTACATCAGCTATTCTGATTACACCCGAGGGGGATGATAAACCGGGCGCGGTCGGTAAAGTTGTTCCATTTTTTGAAGCGAAGGTTGTGGATCTGGATACCGGGAAAACGCTGGGCGTTAATCAGAGAGGCGAATTATGTGTCAGAGGACCTATGATTATGTCCGGTTATGTAAACAATCCGGAAGCGACCAACGCCTTGATTGACAAGGATGGATGGCTACATTCTGGAGACATAGCTTACTGGGACGAAGACGAACACTTCTTCATAGTTGACCGCTTGAAGTCTTTAATTAAATACAAAGGATATCAGGTGGCCCCCGCTGAATTGGAATCGATATTGTTACAACACCCCAACATCTTCGACGCGGGCGTGGCAGGTCTTCCCGACGATGACGCCGGTGAACTTCCCGCCGCCGTTGTTGTTTTGGAGCACGGAAAGACGATGACGGAAAAAGAGATCGTGGATTACGTCGCCAGTCAAGTAACAACCGCGAAAAAGTTGCGCGGAGGAGTTGTGTTTGTGGACGAAGTACCGAAAGGTCTTACCGGAAAACTCGACGCAAGAAAAATCAGAGAGATCCTCATAAAGGCCAAGAAGGGCGGAAAGTCCAAATTGTAA",
+            "color": "#FF1493",
+            "tag": "REPORTER_GENE",
+            "role": "forensic"
+        },
+        "mNeonGreen": {
+            "seq": "ATGGTGAGCAAGGGCGAGGAGGATAACATGGCCATCATCAAGGAGTTCATGCGCTTCAAGGTGCACATGGAGGGCTCCGTGAACGGCCACGAGTTCGAGATCGAGGGCGAGGGCGAGGGCCGCCCCTACGAGGGCACCCAGACCGCCAAGCTGAAGGTGACCAAGGGTGGCCCCCTGCCCTTCGCCTGGGACATCCTGTCCCCTCAGTTCATGTACGGCTCCAAGGCCTACGTGAAGCACCCCGCCGACATCCCCGATTACAAGAAGCTGTCCTTCCCCGAGGGCTTCAAGTGGGAGCGCGTGATGAACTTCGAGGACGGCGGCGTGGTGACCGTGACCCAGGACTCCTCCCTGCAGGACGGCGAGTTCATCTACAAGGTGAAGCTGCGCGGCACCAACTTCCCCTCCGACGGCCCCGTAATGCAGAAGAAGACCATGGGCTGGGAGGCCTCCACCGAGCGCATGTACCCCGAGGACGGCGCCCTGAAGGGCGAGATCAAGATGAGGCTGAAGCTGAAGGACGGCGGCCACTACCTGGTGGAGTTCAAGACCATCTACATGGCCAAGAAGCCCGTGCAGCTGCCCGGCTACTACTACGTGGACTCCAAGCTGGACATCACCTCCCACAACGAGGACTACACCATCGTGGAACAGTACGAGCGCTCCGAGGGCCGCCACCACCTGTTCCTGTAG",
+            "color": "#FF69B4",
+            "tag": "REPORTER_GENE",
+            "role": "forensic"
+        },
+        "--- INC / REPLICON CORES (FORENSIC) ---": {},
+        "ColE1_RNA_I_Core": {
+            "seq": "ACAGTATTTGGTATCTGCGCTCTGCTGAAGCCAGTTACCTTCGGAAAAAGAGTTGG",
+            "color": "#B8860B",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic",
+            "ref": "ColE1 / pMB1 family RNA I control region (canonical lab backbone)",
+            "note": "Inc-related ColE1/pMB1 antisense control; not a clinical IncF/IncP typing claim"
+        },
+        "p15A_Origin_Core": {
+            "seq": "TTTCTACGGGGTCTGACGCTCAGTGGAACGAAAACTCACGTTAAGGGATTTTGGTC",
+            "color": "#DAA520",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic",
+            "ref": "p15A replicon core (pACYC-family; compatible with pMB1/ColE1)",
+            "note": "Different Inc neighborhood from pUC/pBR; use for dual-plasmid chassis triage"
+        },
+        "pSC101_Rep_Core": {
+            "seq": "GATCCCCTCGCGAGTTCCGTCTAAGCAAAACGGCGGGCAGGCGCGCTAGGGCGCTGG",
+            "color": "#CD853F",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic",
+            "ref": "pSC101-family low-copy replicon segment",
+            "note": "Stringent / low-copy lab chassis; compatible with ColE1 group in practice"
+        },
+        "RSF1010_Rep_Core": {
+            "seq": "GCGCCGGATGGTGTGTCCGCGCCAGCTTATTACCAACTTCTCCATCGGCGACGATGCG",
+            "color": "#D2691E",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic",
+            "ref": "RSF1010 / IncQ-like broad-host mobilizable replicon segment",
+            "note": "IncQ-family style backbone signal for triage only"
+        },
+        "IncP_TrfA_Motif": {
+            "seq": "ATGGCCCGCGCCAACGCACCCTTGTACGAGCTGCAGGATGACGTGCTGCGCGCGCTG",
+            "color": "#8B4513",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic",
+            "ref": "IncP / RK2-family TrfA initiator motif (broad-host conjugative)",
+            "note": "Clinical/environmental IncP signal; orthogonal to pUC cloning vectors"
+        },
+        "IncFII_RepA_Motif": {
+            "seq": "ATGGCTCAGCAAGCGGCCGCGATCGCGGCGCTGGCGGCGAAAGCGGCGCTGGCG",
+            "color": "#A0522D",
+            "tag": "CHASSIS_ORIGIN",
+            "role": "forensic",
+            "ref": "IncFII-family RepA-like motif (enterobacterial conjugative plasmids)",
+            "note": "Clinical IncF neighborhood triage; not proof of virulence"
+        },
+        "--- PHAGE MODULES T4 / LAMBDA (FORENSIC) ---": {},
+        "T4_Terminase_Motif": {
+            "seq": "ATGGCTAAATTTCGTAAAAAAGGTATTCCAAAAGAATTAAAAGATGCGATTGAAGC",
+            "color": "#2E8B57",
+            "tag": "LAB_MARKER",
+            "role": "forensic",
+            "ref": "T4-like terminase large-subunit N-terminal motif (packaging)",
+            "note": "Phage packaging module; mosaicism is natural in T4-like phages \u2014 not auto-edit claim"
+        },
+        "T4_Major_Capsid_Motif": {
+            "seq": "ATGGCTGAAATTAAAGTTCGTACCGGTGAAGTTCTGAAAGGTGCGAAAGTTGCG",
+            "color": "#3CB371",
+            "tag": "LAB_MARKER",
+            "role": "forensic",
+            "ref": "T4-like major capsid (gp23-family) conserved N-terminal stretch",
+            "note": "Structural phage module for triage; combine with scars/ori for construct scoring"
+        },
+        "Lambda_cos_Site": {
+            "seq": "GGGCGGCGACCTCGCGGTTTTCGCTATTTATGAAAATTTTCCGGTTTAAGGCG",
+            "color": "#228B22",
+            "tag": "LAB_MARKER",
+            "role": "forensic",
+            "ref": "Bacteriophage lambda cos sticky-end / packaging region segment",
+            "note": "Lambda packaging; common in genomic libraries and some vectors"
+        },
+        "--- SYNTHETIC RECOMBINATION SITES ---": {},
+        "loxP_Site": {
+            "seq": "ATAACTTCGTATAATGTATGCTATACGAAGTTAT",
+            "color": "#FF1493",
+            "tag": "SEAMLESS_ASSEMBLY",
+            "role": "forensic",
+            "ref": "Cre/loxP recombination site (34 bp canonical)",
+            "note": "Strong synthetic grammar signal when paired with other lab markers"
+        },
+        "FRT_Site": {
+            "seq": "GAAGTTCCTATTCTCTAGAAAGTATAGGAACTTC",
+            "color": "#FF69B4",
+            "tag": "SEAMLESS_ASSEMBLY",
+            "role": "forensic",
+            "ref": "FLP/FRT recombination site (34 bp canonical)",
+            "note": "Synthetic recombination grammar"
+        },
+        "ISceI_Site": {
+            "seq": "TAGGGATAACAGGGTAAT",
+            "color": "#C71585",
+            "tag": "SEAMLESS_ASSEMBLY",
+            "role": "forensic",
+            "ref": "I-SceI homing endonuclease recognition site",
+            "note": "Rare cutter used in synthetic biology / genome engineering"
+        },
+        "--- ORTHOGONAL LAB BACKBONE (EXTENDED) ---": {},
+        "AmpR_bla_Core": {
+            "seq": "ATGAGTATTCAACATTTCCGTGTCGCCCTTATTCCCTTTTTTGCGGCATTTTGCCTTCCTGTTTTTGCTCACCCAGAAACGCTGGTGAAAGTAAAAGATGCTGAAGATCAGTTGGGTGCACGAGTGGGTTACATCGAACTGGATCTCAACAGCGGTAAGATCCTTGAGAGTTTTCGCCCCGAAGAACGTTTTCCAATGATGAGCACTTT",
+            "color": "#DC143C",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic",
+            "ref": "bla (AmpR) TEM-family N-terminal coding core (common cloning vectors)",
+            "note": "Orthogonal to ChlorR/BlastR; classic pUC/pBR backbone signal"
+        },
+        "KanR_aphA_Core": {
+            "seq": "ATGAGCCATATTCAACGGGAAACGTCTTGCTCGAGGCCGCGATTAAATTCCAACATGGATGCTGATTTATATGGGTATAAATGGGCTCGCGATAATGTCGGGCAATCAGGTGCGACAATCTATCGATTGTATGGGAAGCCCGATGCGCCAGAGTTGTTTCTGAAACATGGCAAAGGTAGCGTTGCCAATGATGTTACAGATGAGATGGTCAGACTAAACTGGCTGACGGAATTTATGCCTCTTCCGACCATCAAGCATTTTATCCGTACTCCTGATGATGCATGGTTACTCACCACTGCGATCCCCGG",
+            "color": "#B22222",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic",
+            "ref": "aph(3')-IIIa / KanR coding core (Tn5-family neo/kan cassettes)",
+            "note": "Common eukaryotic/prokaryotic kanamycin-neomycin marker"
+        },
+        "HygR_hph_Core": {
+            "seq": "ATGAAAAAGCCTGAACTCACCGCGACGTCTGTCGAGAAGTTTCTGATCGAAAAGTTCGACAGCGTCTCCGACCTGATGCAGCTCTCGGAGGGCGAAGAATCTCGTGCTTTCAGCTTCGATGTAGGAGGGCGTGGATATGTCCTGCGGGTAAATAGCTGCGCCGATGGTTTCTACAAAGATCGTTATGTTTATCGGCACTTTGCATCGGCCGCGCTCCCGATTCCGGAAGTGCTTGACATTGGGGAATTCAGCGAGAGCCTGACCTATTGCATCTCCCGCCGTGCACAGGGTGTCACGTTGCAAGACCTGCCTGAAACCGAACTGCCCGCTGTTCTGCAGCCGGTCGCGGAGGCCATGGATGCGATCGCTGCGGCCGATCTTAGCCAGACGAGCGGGTTCGGCCCATTCGGACCGCAAGGAATCGGTCAATACACTACATGGCGTGATTTCATATGCGCGATTGCTGATCCCCATGTGTATCACTGGCAAACTGTGATGGACGACACCGTCAGTGCGTCCGTCGCGCAGGCTCTCGATGAGCTGATGCTTTGGGCCGAGGACTGCCCCGAAGTCCGGCACCTCGTGCACGCGGATTTCGGCTCCAACAATGTCCTGACGGACAATGGCCGCATAACAGCGGTCATTGACTGGAGCGAGGCGATGTTCGGGGATTCCCAATACGAGGTCGCCAACATCTTCTTCTGGAGGCCGTGGTTGGCTTGTATGGAGCAGCAGACGCGCTACTTCGAGCGGAGGCATCCGGAGCTTGCAGGATCGCCGCGGCTCCGGGCGTATATGCTCCGCATTGGTCTTGACCAACTCTATCAGAGCTTGGTTGACGGCAATTTCGATGATGCAGCTTGGGCGCAGGGTCGATGCGACGCAATCGTCCGATCCGGAGCCGGGACTGTCGGGCGTACACAAATCGCCCGCAGAAGCGCGGCCGTCTGGACCGATGGCTGTGTAGAAGTACTCGCCGATAGTGGAAACCGACGCCCCAGCACTCGTCCGAGGGCAAAGGAATAG",
+            "color": "#8B0000",
+            "tag": "ANTIBIOTIC_RES",
+            "role": "forensic",
+            "ref": "hph / HygR coding sequence (hygromycin B phosphotransferase)",
+            "note": "Common plant/mammalian selectable marker cassette"
+        },
+        "ccdB_Toxin_Core": {
+            "seq": "ATGCAGTTTAAGGTTTACACCTATAAAAGAGAGAGCCGTTATCGTCTGTTTGTGGATGTACAGAGTGATATTATTGACACGCCGGGGCGACGGATGGTGATCCCCCTGGCCAGTGCACGTCTGCTGTCAGATAAAGTCTCCCGTGAACTTTACCCGGTGGTGCATATCGGGGATGAAAGCTGGCGCATGATGACCACCGATATGGCCAGTGTGCCGGTCTCCGTTATCGGGGAAGAAGTGGCTGATCTCAGCCACCGCGAAAATGACATCAAAAACGCCATTAACCTGATGTTCTGGGGAATATAA",
+            "color": "#FF4500",
+            "tag": "LAB_MARKER",
+            "role": "forensic",
+            "ref": "ccdB toxin gene (Gateway / positive-selection cassettes)",
+            "note": "Strong lab-construct signal when co-located with att sites"
+        },
+        "T7_Promoter_Core": {
+            "seq": "TAATACGACTCACTATAGGGAGA",
+            "color": "#4169E1",
+            "tag": "LAB_MARKER",
+            "role": "forensic",
+            "ref": "T7 phage promoter consensus (expression vectors)",
+            "note": "Short but highly specific synthetic expression grammar; pair with T7 term"
+        },
+        "WPRE_Core": {
+            "seq": "AATCAACCTCTGGATTACAAAATTTGTGAAAGATTGACTGGTATTCTTAACTATGTTGCTCCTTTTACGCTATGTGGATACGCTGCTTTAATGCCTTTGTATCATGCTATTGCTTCCCGTATGGCTTTCATTTTCTCCTCCTTGTATAAATCCTGGTTGCTGTCTCTTTATGAGGAGTTGTGGCCCGTTGTCAGGCAACGTGGCGTGGTGTGCACTGTGTTTGCTGACGCAACCCCCACTGGTTGGGGCATTGCCACCACCTGTCAGCTCCTTTCCGGGACTTTCGCTTTCCCCCTCCCTATTGCCACGGCGGAACTCATCGCCGCCTGCCTTGCCCGCTGCTGGACAGGGGCTCGGCTGTTGGGCACTGACAATTCCGTGGTGTTGTCGGGGAAATCATCGTCCTTTCCTTGGCTGCTCGCCTGTGTTGCCACCTGGATTCTGCGCGGGACGTCCTTCTGCTACGTCCCTTCGGCCCTCAATCCAGCGGACCTTCCTTCCCGCGGCCTGCTGCCGGCTCTGCGGCCTCTTCCGCGTCTTCGCCTTCGCCCTCAGACGAGTCGGATCTCCCTTTGGGCCGCCTCCCCGCCTG",
+            "color": "#9932CC",
+            "tag": "VIRAL_EXPORT",
+            "role": "forensic",
+            "ref": "WPRE woodchuck hepatitis post-transcriptional regulatory element core",
+            "note": "Common lentiviral/AAV vector RNA-stability module"
+        },
+        "RRE_HIV1_Core": {
+            "seq": "AGGAGCTTTGTTCCTTGGGTTCTTGGGAGCAGCAGGAAGCACTATGGGCGCAGCGTCAATGACGCTGACGGTACAGGCCAGACAATTATTGTCTGGTATAGTGCAGCAGCAGAACAATTTGCTGAGGGCTATTGAGGCGCAACAGCATCTGTTGCAACTCACAGTCTGGGGCATCAAGCAGCTCCAGGCAAGAATCCTGGCTGTGGAAAGATACCTAAAGGATCAACAGCTCCT",
+            "color": "#8A2BE2",
+            "tag": "VIRAL_EXPORT",
+            "role": "forensic",
+            "ref": "HIV-1 Rev response element (RRE) core segment",
+            "note": "Lentiviral vector backbone module; triage with LTRs/WPRE"
+        },
+        "HIV1_LTR_U5_Core": {
+            "seq": "GGGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGAACCCACTGCTTAAGCCTCAATAAAGCTTGCCTTGAGTGCTTCAAGTAGTGTGTGCCCGTCTGTTGTGTGACTCTGGTAACTAGAGATCCCTCAGACCCTTTTAGTCAGTGTGGAAAATCTCTAGCA",
+            "color": "#4B0082",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic",
+            "ref": "HIV-1 LTR U5 / R region core (lentiviral vectors)",
+            "note": "Vector LTR fragment; not a clinical diagnosis"
+        },
+        "AAV2_ITR_Core": {
+            "seq": "TTGGCCACTCCCTCTCTGCGCGCTCGCTCGCTCACTGAGGCCGGGCGACCAAAGGTCGCCCGACGCCCGGGCTTTGCCCGGGCGGCCTCAGTGAGCGAGCGAGCGCGCAGAGAGGGAGTGGCCAACTCCATCACTAGGGGTTCCT",
+            "color": "#6A5ACD",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic",
+            "ref": "AAV2 inverted terminal repeat (ITR) core",
+            "note": "AAV vector packaging signal; orthogonal to lentiviral LTRs"
+        },
+        "oriT_RP4_Core": {
+            "seq": "ATCCTGTCAAACGCGACGGCCAGCTCAGCCGTTTGCAGCCTGAATGGCGAATGGCGCTTTGCCTGGTTTCCGGCACCAGAAGCGGTGCCGGCAAGCTG",
+            "color": "#D2691E",
+            "tag": "MOBILE_ELEMENT",
+            "role": "forensic",
+            "ref": "RP4/RK2-family origin of transfer (oriT) core motif",
+            "note": "Conjugative mobilization; pairs with IncP TrfA signals"
+        },
+        "attR1_Gateway": {
+            "seq": "ACAAGTTTGTACAAAAAAGCTGAACGAGAAACGTAAAATGATATAAATATCAATATATTAAATTAGATTTTGCATAAAAAACAGACTACATAATACTGTAAAACACAACATATCCAGTCACTATG",
+            "color": "#FF00FF",
+            "tag": "GATEWAY_CLONING",
+            "role": "forensic",
+            "ref": "Gateway attR1 recombination site segment",
+            "note": "Pairs with ccdB / attB for Gateway cassette detection"
+        },
+        "V5_Epitope_Tag": {
+            "seq": "GGTAAGCCTATCCCTAACCCTCTCCTCGGTCTCGATTCTACG",
+            "color": "#FFD700",
+            "tag": "PURIFICATION_TAG",
+            "role": "forensic",
+            "ref": "V5 epitope tag coding DNA (42 bp)",
+            "note": "Orthogonal to His/FLAG/HA purification grammar"
+        },
+        "StrepTagII": {
+            "seq": "TGGAGCCACCCGCAGTTCGAAAAA",
+            "color": "#DAA520",
+            "tag": "PURIFICATION_TAG",
+            "role": "forensic",
+            "ref": "Strep-Tag II coding DNA",
+            "note": "Short but specific affinity tag; score with longer neighbors"
+        },
+        "BGH_PolyA_Signal_Core": {
+            "seq": "CTGTGCCTTCTAGTTGCCAGCCATCTGTTGTTTGCCCCTCCCCCGTGCCTTCCTTGACCCTGGAAGGTGCCACTCCCACTGTCCTTTCCTAATAAAATGAGGAAATTGCATCGCATTGTCTGAGTAGGTGTCATTCTATTCTGGGGGGTGGGGTGGGGCAGGACAGCAAGGGGGAGGATTGGGAAGACAATAGCAGGCATGCTGGGGATGCGGTGGGCTCTATGG",
+            "color": "#20B2AA",
+            "tag": "LAB_MARKER",
+            "role": "forensic",
+            "ref": "Bovine growth hormone polyA signal region (expression cassettes)",
+            "note": "Mammalian expression terminator; may overlap bGH_PolyA_Full if present"
+        }
+    }
+}

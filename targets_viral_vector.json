@@ -1,0 +1,117 @@
+{
+    "FORENSIC_MARKERS": {
+        "--- SYSTEM VALIDATION (ORANGES/GOLD) ---": {},
+        "--- RESTRICTION SCARS (BLUES) ---": {},
+        "--- SEAMLESS & SYNTHETIC LINKERS (PURPLES) ---": {},
+        "--- EXPRESSION SYSTEMS (GREENS) ---": {},
+        "SV40_Promoter": {
+            "seq": "CCCGCCCCTAACTCCGCCC",
+            "color": "#228B22",
+            "tag": "VACCINE_VECTOR",
+            "role": "forensic"
+        },
+        "--- HIGH RISK / EDITING (REDS) ---": {},
+        "Lenti_LTR": {
+            "seq": "ACTTGAAAGCGAAAGGGAAAC",
+            "color": "#B22222",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic"
+        },
+        "RRE_Element": {
+            "seq": "AGGAGCTTTGTTCCTTGG",
+            "color": "#800000",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic"
+        },
+        "--- REPORTERS & TAGS (PINKS) ---": {},
+        "--- CHASSIS & ORIGINS (ORANGES/GOLD) ---": {},
+        "SV40_Origin": {
+            "seq": "TTTTGCAAAAGCCTAGGCCTCCAAAAAAGCC",
+            "color": "#DAA520",
+            "tag": "VIRAL_ORIGIN",
+            "role": "forensic"
+        },
+        "--- SELECTION MARKERS (GRAYS) ---": {},
+        "--- RNA STRUCTURAL (TEALS) ---": {},
+        "IRES_Element": {
+            "seq": "GTTTTCCTTTGAAAACACG",
+            "color": "#20B2AA",
+            "tag": "TRANSLATION_INIT",
+            "role": "forensic"
+        },
+        "WPRE_Element": {
+            "seq": "AATCAACCTCTGGATTACAAA",
+            "color": "#48D1CC",
+            "tag": "VIRAL_EXPORT",
+            "role": "forensic"
+        },
+        "MS2_Stem_Loop": {
+            "seq": "ACATGAGGATCACCCATGT",
+            "color": "#00CED1",
+            "tag": "RNA_SCAFFOLD",
+            "role": "forensic"
+        },
+        "--- HUMAN EDITING & EPIGENETIC (TOMATO / MEDIUM PURPLE) ---": {},
+        "--- ADDITIONAL EXPRESSION / VECTORS ---": {},
+        "CMV_Promoter": {
+            "seq": "CGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAATAATGACG",
+            "color": "#228B22",
+            "tag": "VACCINE_VECTOR",
+            "role": "forensic"
+        },
+        "CAG_Promoter": {
+            "seq": "GCGTTACATAACTTACGGTAAATGGCCCGCCTGGCTGACCGCCCAACGACCCCCGCCCATTGACGTCAAT",
+            "color": "#3CB371",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "SV40_PolyA": {
+            "seq": "AACGTTATCGGATCCAGACATGATAAGATACATTGATGAGTTTGGACAAACCACAACTAGAATGCAGTGAAAAAAATGCTTTATTTGTGAAATTTGTGATGCTATTGCTTTATTTGTAACCATTATAAGCTGCAATAAACAAGTTAACAACAACAATTGCATTCATTTTATGTTTCAGGTTCAGGGGGAGGTGTGGGAGGTTTTTT",
+            "color": "#FFC0CB",
+            "tag": "LAB_MARKER",
+            "role": "forensic"
+        },
+        "IRES_EMCV": {
+            "seq": "CCCCCCCCCCTAACGTTACTGGCCGAAGCCGCTTGGAATAAGGCCGGTGTGCGTTTGTCTATATGTTATTTTCCACCATATTGCCGTCTTTTGGCAATGTGAGGGCCCGGAAACCTGGCCCTGTCTTCTTGACGAGCATTCCTAGGGGTCTTTCCCCTCTCGCCAAAGGAATGCAAGGTCTGTTGAATGTCGTGAAGGAAGCAGTTCCTCTGGAAGCTTCTTGAAGACAAACAACGTCTGTAGCGACCCTTTGCAGGCAGCGGAACCCCCCACCTGGCGACAGGTGCCTCTGCGGCCAAAAGCCACGTGTATAAGATACACCTGCAAAGGCGGCACAACCCCAGTGCCACGTTGTGAGTTGGATAGTTGTGGAAAGAGTCAAATGGCTCTCCTCAAGCGTATTCAACAAGGGGCTGAAGGATGCCCAGAAGGTACCCCATTGTATGGGATCTGATCTGGGGCCTCGGTGCACATGCTTTACATGTGTTTAGTCGAGGTTAAAAAAACGTCTAGGCCCCCCGAACCACGGGGACGTGGTTTTCCTTTGAAAAACACGATGATAATATGGCCACAACC",
+            "color": "#20B2AA",
+            "tag": "TRANSLATION_INIT",
+            "role": "forensic"
+        },
+        "--- ADDITIONAL RESTRICTION / ASSEMBLY ---": {},
+        "--- ADDITIONAL SELECTION / REPORTERS ---": {},
+        "WPRE_Core": {
+            "seq": "AATCAACCTCTGGATTACAAAATTTGTGAAAGATTGACTGGTATTCTTAACTATGTTGCTCCTTTTACGCTATGTGGATACGCTGCTTTAATGCCTTTGTATCATGCTATTGCTTCCCGTATGGCTTTCATTTTCTCCTCCTTGTATAAATCCTGGTTGCTGTCTCTTTATGAGGAGTTGTGGCCCGTTGTCAGGCAACGTGGCGTGGTGTGCACTGTGTTTGCTGACGCAACCCCCACTGGTTGGGGCATTGCCACCACCTGTCAGCTCCTTTCCGGGACTTTCGCTTTCCCCCTCCCTATTGCCACGGCGGAACTCATCGCCGCCTGCCTTGCCCGCTGCTGGACAGGGGCTCGGCTGTTGGGCACTGACAATTCCGTGGTGTTGTCGGGGAAATCATCGTCCTTTCCTTGGCTGCTCGCCTGTGTTGCCACCTGGATTCTGCGCGGGACGTCCTTCTGCTACGTCCCTTCGGCCCTCAATCCAGCGGACCTTCCTTCCCGCGGCCTGCTGCCGGCTCTGCGGCCTCTTCCGCGTCTTCGCCTTCGCCCTCAGACGAGTCGGATCTCCCTTTGGGCCGCCTCCCCGCCTG",
+            "color": "#9932CC",
+            "tag": "VIRAL_EXPORT",
+            "role": "forensic",
+            "ref": "WPRE woodchuck hepatitis post-transcriptional regulatory element core",
+            "note": "Common lentiviral/AAV vector RNA-stability module"
+        },
+        "RRE_HIV1_Core": {
+            "seq": "AGGAGCTTTGTTCCTTGGGTTCTTGGGAGCAGCAGGAAGCACTATGGGCGCAGCGTCAATGACGCTGACGGTACAGGCCAGACAATTATTGTCTGGTATAGTGCAGCAGCAGAACAATTTGCTGAGGGCTATTGAGGCGCAACAGCATCTGTTGCAACTCACAGTCTGGGGCATCAAGCAGCTCCAGGCAAGAATCCTGGCTGTGGAAAGATACCTAAAGGATCAACAGCTCCT",
+            "color": "#8A2BE2",
+            "tag": "VIRAL_EXPORT",
+            "role": "forensic",
+            "ref": "HIV-1 Rev response element (RRE) core segment",
+            "note": "Lentiviral vector backbone module; triage with LTRs/WPRE"
+        },
+        "HIV1_LTR_U5_Core": {
+            "seq": "GGGTCTCTCTGGTTAGACCAGATCTGAGCCTGGGAGCTCTCTGGCTAACTAGGGAACCCACTGCTTAAGCCTCAATAAAGCTTGCCTTGAGTGCTTCAAGTAGTGTGTGCCCGTCTGTTGTGTGACTCTGGTAACTAGAGATCCCTCAGACCCTTTTAGTCAGTGTGGAAAATCTCTAGCA",
+            "color": "#4B0082",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic",
+            "ref": "HIV-1 LTR U5 / R region core (lentiviral vectors)",
+            "note": "Vector LTR fragment; not a clinical diagnosis"
+        },
+        "AAV2_ITR_Core": {
+            "seq": "TTGGCCACTCCCTCTCTGCGCGCTCGCTCGCTCACTGAGGCCGGGCGACCAAAGGTCGCCCGACGCCCGGGCTTTGCCCGGGCGGCCTCAGTGAGCGAGCGAGCGCGCAGAGAGGGAGTGGCCAACTCCATCACTAGGGGTTCCT",
+            "color": "#6A5ACD",
+            "tag": "VIRAL_VECTOR",
+            "role": "forensic",
+            "ref": "AAV2 inverted terminal repeat (ITR) core",
+            "note": "AAV vector packaging signal; orthogonal to lentiviral LTRs"
+        }
+    },
+    "_panel": "viral_vector",
+    "_note": "Subset of Targets.json \u2014 full master list is unchanged in Targets.json"
+}

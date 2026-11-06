@@ -1,0 +1,28 @@
+services:
+  forensic-engine:
+    build:
+      context: .
+      args:
+        - BASE_IMAGE=${SELECTED_IMAGE:-python:3.11-slim}
+    user: "${MY_UID:-1000}:${MY_GID:-1000}" 
+    container_name: bsap_audit_ui
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./Clinical_Samples:/app/Clinical_Samples
+      - ./Industrial_Sources:/app/Industrial_Sources
+      - ./Reference_Archive:/app/Reference_Archive
+      - ./Forensic_Results:/app/Forensic_Results
+      - ./Audit_Library:/app/Audit_Library
+      - ./Configuration.txt:/app/Configuration.txt
+      - ./Targets.json:/app/Targets.json  # <--- Added manifest mapping
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - MY_UID=${MY_UID}
+      - MY_GID=${MY_GID:-1000}
+      - HOME=/tmp
+    restart: unless-stopped
+    command: >
+      sh -c "python3 Setup_env.py && 
+             streamlit run APP.py --server.port=8501 --server.address=0.0.0.0"

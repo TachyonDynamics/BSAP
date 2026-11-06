@@ -1,0 +1,126 @@
+{
+    "FORENSIC_MARKERS": {
+        "BsaI_Scar": {
+            "seq": "GGTCTC",
+            "color": "#ADD8E6",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BsmBI_Scar": {
+            "seq": "CGTCTC",
+            "color": "#00008B",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "NotI_Site": {
+            "seq": "GCGGCCGC",
+            "color": "#4169E1",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BamHI_Site": {
+            "seq": "GGATCC",
+            "color": "#1E90FF",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "PolyA_Signal": {
+            "seq": "AATAAA",
+            "color": "#008080",
+            "tag": "RNA_STABILITY",
+            "role": "composition"
+        },
+        "SpCas9_PAM_NGG": {
+            "seq": "NGG",
+            "color": "#FF6347",
+            "tag": "HUMAN_EDIT",
+            "role": "composition"
+        },
+        "AsCas12a_PAM": {
+            "seq": "TTTV",
+            "color": "#FF7F50",
+            "tag": "HUMAN_EDIT",
+            "role": "composition"
+        },
+        "CpG_Island_Core": {
+            "seq": "CGCGCGCG",
+            "color": "#9370DB",
+            "tag": "EPIGENETIC_SITE",
+            "role": "composition"
+        },
+        "TET_Oxidation_Motif": {
+            "seq": "CGCG",
+            "color": "#8A2BE2",
+            "tag": "EPIGENETIC_SITE",
+            "role": "composition"
+        },
+        "DNMT_Target_CG": {
+            "seq": "CG",
+            "color": "#9932CC",
+            "tag": "EPIGENETIC_SITE",
+            "role": "composition"
+        },
+        "Kozak_Consensus": {
+            "seq": "GCCACCATGG",
+            "color": "#00FA9A",
+            "tag": "LAB_MARKER",
+            "role": "composition"
+        },
+        "Shine_Dalgarno": {
+            "seq": "AGGAGG",
+            "color": "#32CD32",
+            "tag": "LAB_MARKER",
+            "role": "composition"
+        },
+        "EcoRI_Site": {
+            "seq": "GAATTC",
+            "color": "#87CEEB",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "HindIII_Site": {
+            "seq": "AAGCTT",
+            "color": "#4682B4",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "XbaI_Site": {
+            "seq": "TCTAGA",
+            "color": "#5F9EA0",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "NdeI_Site": {
+            "seq": "CATATG",
+            "color": "#6495ED",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "XhoI_Site": {
+            "seq": "CTCGAG",
+            "color": "#00BFFF",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "SapI_Scar": {
+            "seq": "GCTCTTC",
+            "color": "#1E90FF",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BbsI_Scar": {
+            "seq": "GAAGAC",
+            "color": "#4169E1",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        },
+        "BglII_Site": {
+            "seq": "AGATCT",
+            "color": "#0000CD",
+            "tag": "RESTRICTION_SCAR",
+            "role": "composition"
+        }
+    },
+    "_panel": "composition",
+    "_note": "Density/short motifs only \u2014 full list still in Targets.json"
+}

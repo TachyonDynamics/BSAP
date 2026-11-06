@@ -1,0 +1,69 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+*.so
+
+# Runtime inputs — never ship user genomes
+Clinical_Samples/
+Industrial_Sources/
+Reference_Archive/
+*.fasta
+*.fa
+*.fna
+*.fas
+*.faa
+*.fastq
+*.fq
+*.gb
+*.genbank
+*.gbk
+*.gff
+*.gff3
+*.gtf
+
+# Runtime outputs
+Forensic_Results/
+Audit_Library/
+portal_snapshot.json
+
+# Local backups / archives (user machine)
+backup/
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Secrets / local overrides
+Configuration.local.txt
+Configuration.stress.txt
+*.pem
+*.key
+secrets.*
+
+# Patch scratch (optional local work)
+PATCH_*.py
+PATCH_*.txt
+MERGE_*.txt
+APPLY_*.md
+Forensic_Patches.zip
+Alpha4old.py
+APPportal.py
+Launch_BSAP.py

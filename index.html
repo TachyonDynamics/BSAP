@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BSAP — Live Audit Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            ink: { 950: "#070b12", 900: "#0c1220", 800: "#121a2b", 700: "#1a2438", 600: "#243049" },
+            accent: { emerald: "#10b981", cyan: "#22d3ee", amber: "#f59e0b", rose: "#f43f5e", violet: "#a78bfa" }
+          },
+          fontFamily: {
+            sans: ["IBM Plex Sans", "system-ui", "sans-serif"],
+            mono: ["IBM Plex Mono", "ui-monospace", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #070b12; color: #e2e8f0; font-family: "IBM Plex Sans", system-ui, sans-serif; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+    .panel {
+      background: linear-gradient(180deg, rgba(18,26,43,.96), rgba(12,18,32,.98));
+      border: 1px solid rgba(36,48,73,.9);
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    }
+    .chip { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font: 600 10px "IBM Plex Mono", ui-monospace, monospace; border: 1px solid; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #070b12; }
+    ::-webkit-scrollbar-thumb { background: #243049; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+    table.data th { position: sticky; top: 0; background: #121a2b; z-index: 1; }
+    .tab-btn.active { color: #10b981; border-bottom: 2px solid #10b981; background: rgba(16,185,129,.08); }
+    canvas { display: block; max-width: 100%; }
+    .heat-cell { width: 28px; height: 18px; border-radius: 2px; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="panel sticky top-0 z-50 px-4 py-3 border-b border-ink-700">
+    <div class="max-w-[1800px] mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-accent-emerald text-lg">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="font-semibold text-base tracking-wide text-white mono uppercase">BSAP</h1>
+            <span class="chip border-emerald-500/40 text-accent-emerald bg-emerald-500/10">AUDIT PORTAL</span>
+            <select id="run-select" class="chip border-ink-600 bg-ink-800 text-slate-300 ml-2" title="Saved run snapshots"></select>
+            <span id="live-badge" class="chip border-amber-500/40 text-accent-amber bg-amber-500/10">DEMO DATA</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mono mt-0.5">
+            Reads <span class="text-slate-300">Audit_Library</span> / live Forensic_Results snapshot · waterfall · flanks · incorporation · composition
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 text-xs mono">
+        <div class="panel px-3 py-1.5 rounded-lg flex gap-4">
+          <div><span class="text-slate-500">FILES</span> <span id="stat-files" class="text-accent-cyan font-semibold ml-1">—</span></div>
+          <div><span class="text-slate-500">TAGS</span> <span id="stat-tags" class="text-accent-emerald font-semibold ml-1">—</span></div>
+          <div><span class="text-slate-500">EDGES</span> <span id="stat-edges" class="text-accent-amber font-semibold ml-1">—</span></div>
+          <div><span class="text-slate-500">INCORP</span> <span id="stat-incorp" class="text-accent-rose font-semibold ml-1">—</span></div>
+          <div><span class="text-slate-500">HITS</span> <span id="stat-hits" class="text-accent-rose font-semibold ml-1">—</span></div>
+        </div>
+        <label class="px-3 py-1.5 rounded-lg bg-cyan-500/10 text-accent-cyan border border-cyan-500/30 cursor-pointer hover:bg-cyan-500/20">
+          <i class="fa-solid fa-folder-open"></i> Load snapshot JSON
+          <input type="file" id="file-snapshot" accept=".json,application/json" class="hidden" />
+        </label>
+        <button onclick="reloadLive()" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-ink-950 font-semibold hover:bg-emerald-400">
+          <i class="fa-solid fa-rotate"></i> Refresh live
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- TABS -->
+  <nav class="bg-ink-950/95 border-b border-ink-700 px-4 sticky top-[68px] z-40 backdrop-blur">
+    <div class="max-w-[1800px] mx-auto flex gap-1 overflow-x-auto text-xs mono font-medium">
+      <button class="tab-btn active px-4 py-3" data-tab="matrix" onclick="switchTab('matrix')"><i class="fa-solid fa-table-cells"></i> Waterfall matrix</button>
+      <button class="tab-btn px-4 py-3" data-tab="files" onclick="switchTab('files')"><i class="fa-solid fa-file-lines"></i> Per-file inventory</button>
+      <button class="tab-btn px-4 py-3" data-tab="similarity" onclick="switchTab('similarity')"><i class="fa-solid fa-diagram-project"></i> Cross-similarity</button>
+      <button class="tab-btn px-4 py-3" data-tab="incorporation" onclick="switchTab('incorporation')"><i class="fa-solid fa-share-nodes"></i> Incorporation map</button>
+      <button class="tab-btn px-4 py-3" data-tab="incsum" onclick="switchTab('incsum')"><i class="fa-solid fa-dna"></i> Inc summary</button>
+      <button class="tab-btn px-4 py-3" data-tab="composition" onclick="switchTab('composition')"><i class="fa-solid fa-chart-bar"></i> Composition density</button>
+      <button class="tab-btn px-4 py-3" data-tab="artifacts" onclick="switchTab('artifacts')"><i class="fa-solid fa-folder-tree"></i> Artifacts map</button>
+      <button class="tab-btn px-4 py-3" data-tab="about" onclick="switchTab('about')"><i class="fa-solid fa-circle-info"></i> Data sources</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 p-4 max-w-[1800px] w-full mx-auto space-y-4">
+
+    <!-- MATRIX -->
+    <section id="view-matrix" class="space-y-3">
+      <div class="panel rounded-xl p-3 flex flex-wrap gap-3 items-center justify-between">
+        <div class="flex flex-wrap gap-2 items-center flex-1">
+          <div class="relative min-w-[220px] flex-1">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+            <input id="matrix-search" oninput="renderMatrix()" type="text" placeholder="Filter files…"
+              class="w-full bg-ink-950 border border-ink-600 rounded-lg pl-8 pr-3 py-1.5 text-xs mono focus:outline-none focus:border-emerald-500" />
+          </div>
+          <select id="matrix-tag-filter" onchange="renderMatrix()"
+            class="bg-ink-950 border border-ink-600 rounded-lg px-3 py-1.5 text-xs mono text-slate-300">
+            <option value="ALL">All tags</option>
+          </select>
+          <label class="text-xs text-slate-400 mono flex items-center gap-2">
+            Min total hits
+            <input id="matrix-min-hits" type="number" min="0" value="0" oninput="renderMatrix()"
+              class="w-16 bg-ink-950 border border-ink-600 rounded px-2 py-1 text-xs" />
+          </label>
+        </div>
+        <p class="text-[11px] text-slate-500 mono">Rows = source files · columns = marker tags · cell = hit count</p>
+      </div>
+
+      <div class="panel rounded-xl p-3 overflow-auto max-h-[70vh]">
+        <div id="matrix-empty" class="hidden text-sm text-slate-400 p-6 text-center">
+          No matrix data. Run an audit, or load <span class="mono text-slate-300">portal_snapshot.json</span>.
+        </div>
+        <table class="data w-full text-[11px] mono border-collapse" id="matrix-table">
+          <thead id="matrix-head"></thead>
+          <tbody id="matrix-body"></tbody>
+        </table>
+      </div>
+      <canvas id="waterfall-canvas" class="w-full panel rounded-xl" height="220"></canvas>
+    </section>
+
+    <!-- FILES -->
+    <section id="view-files" class="hidden space-y-3">
+      <div class="panel rounded-xl p-3">
+        <div class="flex flex-wrap gap-2 mb-3">
+          <input id="file-search" oninput="renderFileTable()" type="text" placeholder="Search filename…"
+            class="flex-1 min-w-[200px] bg-ink-950 border border-ink-600 rounded-lg px-3 py-1.5 text-xs mono" />
+        </div>
+        <div class="overflow-auto max-h-[65vh]">
+          <table class="data w-full text-[11px] mono">
+            <thead>
+              <tr class="text-left text-slate-400 border-b border-ink-700">
+                <th class="p-2">File</th>
+                <th class="p-2">Category</th>
+                <th class="p-2">Length</th>
+                <th class="p-2">Total hits</th>
+                <th class="p-2">Top tags</th>
+                <th class="p-2">Artifacts</th>
+              </tr>
+            </thead>
+            <tbody id="files-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="file-detail" class="panel rounded-xl p-4 hidden">
+        <h3 id="file-detail-title" class="text-sm font-semibold mono text-white mb-2"></h3>
+        <pre id="file-detail-body" class="text-[11px] mono text-slate-300 whitespace-pre-wrap max-h-80 overflow-auto bg-ink-950 p-3 rounded-lg border border-ink-700"></pre>
+      </div>
+    </section>
+
+    <!-- SIMILARITY -->
+    <section id="view-similarity" class="hidden space-y-3">
+      <div class="panel rounded-xl p-3">
+        <p class="text-xs text-slate-400 mb-3 mono" id="sim-caption">Exact shared LEFT/RIGHT flanks between files (Phase 2).</p>
+        <div class="overflow-auto max-h-[65vh]">
+          <table class="data w-full text-[11px] mono">
+            <thead>
+              <tr class="text-left text-slate-400 border-b border-ink-700">
+                <th class="p-2">File A</th>
+                <th class="p-2">File B</th>
+                <th class="p-2">Shared flanks</th>
+                <th class="p-2">Pair support</th>
+                <th class="p-2">Score</th>
+                <th class="p-2">Top label</th>
+                <th class="p-2">Markers</th>
+              </tr>
+            </thead>
+            <tbody id="sim-body"></tbody>
+          </table>
+        </div>
+        <p id="sim-empty" class="hidden text-sm text-slate-400 p-4">No CROSS_SIMILARITY_TRACKER edges yet.</p>
+      </div>
+    </section>
+
+    <!-- INCORPORATION MAP -->
+    <section id="view-incorporation" class="hidden space-y-3">
+      <div class="panel rounded-xl p-3 space-y-3">
+        <p class="text-xs text-slate-400 mono" id="inc-caption">
+          100% flank identity from marker A lands beside a different forensic marker B in another file.
+          Same-marker neighborhoods suppressed. Cyan outline in engine PNG = same GenBank accession.
+        </p>
+        <div class="flex flex-wrap gap-3 items-center text-[11px] mono">
+          <label class="text-slate-400">Min contexts
+            <input id="inc-min" type="number" min="0" value="1" oninput="renderIncorporation()"
+              class="ml-1 w-14 bg-ink-900 border border-ink-700 rounded px-1 py-0.5 text-white" />
+          </label>
+          <label class="text-slate-400 flex items-center gap-1">
+            <input id="inc-hide-dup" type="checkbox" checked onchange="renderIncorporation()" />
+            Hide same-accession pairs
+          </label>
+        </div>
+        <canvas id="inc-canvas" class="w-full rounded-lg border border-ink-700 bg-ink-950" height="420"></canvas>
+        <div class="overflow-auto max-h-[40vh]">
+          <table class="data w-full text-[11px] mono">
+            <thead>
+              <tr class="text-left text-slate-400 border-b border-ink-700">
+                <th class="p-2">Origin (flank source)</th>
+                <th class="p-2">Target (found in)</th>
+                <th class="p-2">Contexts</th>
+                <th class="p-2">Max risk</th>
+                <th class="p-2">Same acc.</th>
+                <th class="p-2">Foreign markers</th>
+              </tr>
+            </thead>
+            <tbody id="inc-body"></tbody>
+          </table>
+        </div>
+        <p id="inc-empty" class="hidden text-sm text-slate-400 p-4">No incorporation links in snapshot yet — re-run audit after Phase 2.</p>
+      </div>
+    </section>
+
+    <!-- INC SUMMARY -->
+    <section id="view-incsum" class="hidden space-y-3">
+      <div class="panel rounded-xl p-3 space-y-3">
+        <p class="text-xs text-slate-400 mono" id="incsum-caption">
+          Inc / chassis triage from forensic markers on cross-file edges. Not a conjugation Inc assay.
+        </p>
+        <div id="incsum-families" class="flex flex-wrap gap-2 text-[11px] mono"></div>
+        <div class="overflow-auto max-h-[65vh]">
+          <table class="data w-full text-[11px] mono">
+            <thead>
+              <tr class="text-left text-slate-400 border-b border-ink-700">
+                <th class="p-2">File</th>
+                <th class="p-2">Families</th>
+                <th class="p-2">Inc / chassis markers</th>
+                <th class="p-2">Chassis</th>
+                <th class="p-2">Seamless</th>
+                <th class="p-2">AbR</th>
+              </tr>
+            </thead>
+            <tbody id="incsum-body"></tbody>
+          </table>
+        </div>
+        <p id="incsum-empty" class="hidden text-sm text-slate-400 p-4">No inc_summary in snapshot — re-run audit.</p>
+      </div>
+    </section>
+
+    <!-- COMPOSITION -->
+    <section id="view-composition" class="hidden space-y-3">
+      <div class="panel rounded-xl p-3 overflow-auto max-h-[70vh]">
+        <table class="data w-full text-[11px] mono">
+          <thead>
+            <tr class="text-left text-slate-400 border-b border-ink-700">
+              <th class="p-2">File</th>
+              <th class="p-2">Marker</th>
+              <th class="p-2">FWD</th>
+              <th class="p-2">REV</th>
+              <th class="p-2">Total</th>
+              <th class="p-2">/kb</th>
+            </tr>
+          </thead>
+          <tbody id="comp-body"></tbody>
+        </table>
+        <p id="comp-empty" class="hidden text-sm text-slate-400 p-4">No composition sidecars in snapshot.</p>
+      </div>
+    </section>
+
+    <!-- ARTIFACTS -->
+    <section id="view-artifacts" class="hidden space-y-3">
+      <div class="panel rounded-xl p-4 text-xs mono text-slate-300 space-y-2">
+        <p class="text-slate-400">Paths relative to project root (from snapshot when live):</p>
+        <ul id="artifact-list" class="space-y-1 max-h-[60vh] overflow-auto"></ul>
+        <p id="artifact-empty" class="hidden text-slate-500">No artifact index. Snapshot may omit paths; Streamlit APP still shows full disk inventory.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="view-about" class="hidden">
+      <div class="panel rounded-xl p-5 text-sm text-slate-300 space-y-3 leading-relaxed max-w-3xl">
+        <h2 class="text-white font-semibold text-base">How this portal gets live data</h2>
+        <ol class="list-decimal pl-5 space-y-2 text-xs mono">
+          <li><strong class="text-accent-emerald">Injected snapshot</strong> — Streamlit APP.py sets <span class="text-accent-cyan">window.__FORENSIC_DATA__</span> before embedding this page.</li>
+          <li><strong class="text-accent-emerald">Fetch</strong> — tries <span class="text-accent-cyan">Audit_Library/&lt;stamp&gt;/portal_snapshot.json</span> and live Global_Evidence (works when served from project root, e.g. <span class="text-slate-400">python -m http.server</span>).</li>
+          <li><strong class="text-accent-emerald">Manual load</strong> — use “Load snapshot JSON” for any exported snapshot.</li>
+          <li><strong class="text-accent-amber">Demo fallback</strong> — sample rows only when no live source is found (badge stays amber).</li>
+        </ol>
+        <p class="text-xs text-slate-400">
+          Full heatmaps, WAV playback, and evidence text expanders remain on the Streamlit
+          <strong>Forensic Audit</strong> tab — this page is the dense matrix / graph overview.
+          Hypothesis fields in engine logs stay labelled HEURISTIC there; this UI shows counts and graph edges only.
+        </p>
+        <p class="text-[11px] text-slate-500 mono" id="load-status">Load status: idle</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-[10px] text-slate-600 mono text-center py-3 border-t border-ink-800">
+    BSAP · visual overview · not a medical diagnostic · live when snapshot present
+  </footer>
+
+<script>
+/**
+ * Live data shape (portal_snapshot.json / window.__FORENSIC_DATA__):
+ * {
+ *   generated_at, description,
+ *   files: [{ name, category, seq_len, by_tag: {TAG: n}, total_hits, artifacts?: string[] }],
+ *   categories: ["RESTRICTION_SCAR", ...],
+ *   edges: [{ file_a, file_b, shared_flank_hits, pair_support_count, similarity_score, markers, top_label }],
+ *   incorporation: [...],
+ *   inc_summary: { family_file_counts, files: [{ file, families, inc_markers, ... }] },
+ *   composition_rows: [{ file, marker, fwd, rev, total, density_per_kb }],
+ *   n_raw_hits, artifact_paths?: string[]
+ * }
+ */
+let STATE = { live: false, data: null };
+
+const DEMO = {
+  generated_at: null,
+  description: "Demo placeholder — run audit + load portal_snapshot.json for live data",
+  files: [
+    { name: "AAV_Vector_Standard_AF043303.1.fasta", category: "Clinical", seq_len: 4679, by_tag: { VIRAL_VECTOR: 2, LAB_MARKER: 4, CHASSIS_ORIGIN: 1 }, total_hits: 7 },
+    { name: "Morgellons_Blue_Vector_1_MN187559.1.fasta", category: "Clinical", seq_len: 12387, by_tag: { LAB_MARKER: 6, ANTIBIOTIC_RES: 2, RESTRICTION_SCAR: 4, EPIGENETIC_SITE: 800 }, total_hits: 812 },
+    { name: "E_coli_K12_MG1655_U00096.3.fasta", category: "Industrial", seq_len: 4641652, by_tag: { EPIGENETIC_SITE: 12000, LAB_MARKER: 40 }, total_hits: 12040 },
+    { name: "Lentivirus_Vector_pLKO1_FJ182853.1.fasta", category: "Clinical", seq_len: 7032, by_tag: { VIRAL_VECTOR: 5, REPORTER_GENE: 1, LAB_MARKER: 3 }, total_hits: 9 }
+  ],
+  categories: ["RESTRICTION_SCAR", "LAB_MARKER", "VIRAL_VECTOR", "ANTIBIOTIC_RES", "EPIGENETIC_SITE", "REPORTER_GENE", "CHASSIS_ORIGIN"],
+  edges: [
+    { file_a: "Morgellons_Blue_Vector_1_MN187559.1.fasta", file_b: "Morgellons_Blue_IND_1_MN187559.1.fasta", shared_flank_hits: 12, pair_support_count: 4, similarity_score: 88, markers: ["KanR_Marker", "NOS_Terminator"], top_label: "FLANK_CROSS_SAME_MARKER" }
+  ],
+  composition_rows: [],
+  n_raw_hits: 0
+};
+
+function switchTab(id) {
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === id));
+  ["matrix", "files", "similarity", "incorporation", "incsum", "composition", "artifacts", "about"].forEach(t => {
+    const el = document.getElementById("view-" + t);
+    if (el) el.classList.toggle("hidden", t !== id);
+  });
+  if (id === "matrix") { renderMatrix(); drawStrip(); }
+  if (id === "incorporation") { renderIncorporation(); }
+  if (id === "incsum") { renderIncSummary(); }
+}
+
+function setLiveBadge(live, source) {
+  STATE.live = live;
+  const b = document.getElementById("live-badge");
+  if (live) {
+    b.textContent = "LIVE · " + source;
+    b.className = "chip border-emerald-500/40 text-accent-emerald bg-emerald-500/10";
+  } else {
+    b.textContent = "DEMO DATA";
+    b.className = "chip border-amber-500/40 text-accent-amber bg-amber-500/10";
+  }
+  document.getElementById("load-status").textContent = "Load status: " + (live ? "live (" + source + ")" : "demo fallback");
+}
+
+function applyData(data, source) {
+  STATE.data = data;
+  setLiveBadge(source !== "demo", source);
+  const files = data.files || [];
+  const cats = data.categories || [];
+  const edges = data.edges || [];
+  let hitSum = 0;
+  files.forEach(f => { hitSum += f.total_hits || 0; });
+  document.getElementById("stat-files").textContent = files.length.toLocaleString();
+  document.getElementById("stat-tags").textContent = cats.length.toLocaleString();
+  document.getElementById("stat-edges").textContent = edges.length.toLocaleString();
+  const inc = data.incorporation || [];
+  const si = document.getElementById("stat-incorp");
+  if (si) si.textContent = inc.length.toLocaleString();
+  document.getElementById("stat-hits").textContent = (data.n_raw_hits != null ? data.n_raw_hits : hitSum).toLocaleString();
+
+  const sel = document.getElementById("matrix-tag-filter");
+  const prev = sel.value;
+  sel.innerHTML = '<option value="ALL">All tags</option>';
+  cats.forEach(c => {
+    const o = document.createElement("option");
+    o.value = c; o.textContent = c;
+    sel.appendChild(o);
+  });
+  if ([...sel.options].some(o => o.value === prev)) sel.value = prev;
+
+  renderMatrix();
+  renderFileTable();
+  renderSimilarity();
+  try { renderIncorporation(); } catch (_) {}
+  renderComposition();
+  renderArtifacts();
+  drawStrip();
+}
+
+function renderMatrix() {
+  const data = STATE.data || DEMO;
+  const q = (document.getElementById("matrix-search").value || "").toLowerCase();
+  const tagF = document.getElementById("matrix-tag-filter").value;
+  const minH = parseInt(document.getElementById("matrix-min-hits").value || "0", 10) || 0;
+  const cats = data.categories || [];
+  let rows = (data.files || []).filter(f => {
+    if (q && !(f.name || "").toLowerCase().includes(q)) return false;
+    if ((f.total_hits || 0) < minH) return false;
+    if (tagF !== "ALL" && !(f.by_tag && f.by_tag[tagF] > 0)) return false;
+    return true;
+  });
+
+  const head = document.getElementById("matrix-head");
+  const body = document.getElementById("matrix-body");
+  const empty = document.getElementById("matrix-empty");
+  if (!rows.length || !cats.length) {
+    head.innerHTML = ""; body.innerHTML = ""; empty.classList.remove("hidden");
+    return;
+  }
+  empty.classList.add("hidden");
+  head.innerHTML = "<tr class='text-left text-slate-400 border-b border-ink-700'><th class='p-2 sticky left-0 bg-ink-800 z-[2]'>File</th>" +
+    cats.map(c => `<th class="p-2 whitespace-nowrap" title="${c}">${c.length > 14 ? c.slice(0, 12) + "…" : c}</th>`).join("") +
+    "<th class='p-2'>Σ</th></tr>";
+
+  body.innerHTML = rows.map(f => {
+    const cells = cats.map(c => {
+      const n = (f.by_tag && f.by_tag[c]) || 0;
+      const alpha = n ? Math.min(1, 0.2 + Math.log10(n + 1) / 4) : 0;
+      const bg = n ? `rgba(16,185,129,${alpha})` : "transparent";
+      return `<td class="p-1 text-center" style="background:${bg}">${n || ""}</td>`;
+    }).join("");
+    return `<tr class="border-b border-ink-800/80 hover:bg-ink-800/50">
+      <td class="p-2 sticky left-0 bg-ink-900 z-[1] max-w-[220px] truncate" title="${esc(f.name)}">${esc(f.name)}</td>
+      ${cells}<td class="p-2 text-accent-cyan">${f.total_hits || 0}</td></tr>`;
+  }).join("");
+}
+
+function drawStrip() {
+  const canvas = document.getElementById("waterfall-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const data = STATE.data || DEMO;
+  const files = data.files || [];
+  const cats = data.categories || [];
+  const w = canvas.parentElement ? canvas.parentElement.clientWidth - 24 : 800;
+  canvas.width = Math.max(600, w);
+  canvas.height = Math.min(400, Math.max(120, files.length * 14 + 40));
+  ctx.fillStyle = "#0c1220";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  if (!files.length || !cats.length) return;
+  const labelW = 160;
+  const colW = (canvas.width - labelW - 8) / cats.length;
+  const rowH = (canvas.height - 28) / files.length;
+  ctx.fillStyle = "#64748b";
+  ctx.font = "10px IBM Plex Mono";
+  cats.forEach((c, j) => {
+    ctx.save();
+    ctx.translate(labelW + j * colW + 4, 12);
+    ctx.fillText(c.slice(0, 10), 0, 0);
+    ctx.restore();
+  });
+  files.slice(0, 80).forEach((f, i) => {
+    const y = 24 + i * rowH;
+    ctx.fillStyle = "#94a3b8";
+    ctx.fillText((f.name || "").slice(0, 22), 4, y + rowH * 0.7);
+    cats.forEach((c, j) => {
+      const n = (f.by_tag && f.by_tag[c]) || 0;
+      if (!n) return;
+      const a = Math.min(1, 0.25 + Math.log10(n + 1) / 3.5);
+      ctx.fillStyle = `rgba(34,211,238,${a})`;
+      ctx.fillRect(labelW + j * colW + 1, y, Math.max(2, colW - 2), Math.max(2, rowH - 1));
+    });
+  });
+}
+
+function renderFileTable() {
+  const data = STATE.data || DEMO;
+  const q = (document.getElementById("file-search").value || "").toLowerCase();
+  const body = document.getElementById("files-body");
+  const rows = (data.files || []).filter(f => !q || (f.name || "").toLowerCase().includes(q));
+  body.innerHTML = rows.map(f => {
+    const tags = Object.entries(f.by_tag || {}).sort((a, b) => b[1] - a[1]).slice(0, 4)
+      .map(([t, n]) => `${t}:${n}`).join(", ");
+    const arts = (f.artifacts || []).length ? (f.artifacts.length + " paths") : "—";
+    return `<tr class="border-b border-ink-800 hover:bg-ink-800/40 cursor-pointer" onclick='showFileDetail(${JSON.stringify(f).replace(/'/g, "&#39;")})'>
+      <td class="p-2 max-w-[280px] truncate text-slate-200">${esc(f.name)}</td>
+      <td class="p-2 text-slate-400">${esc(f.category || "—")}</td>
+      <td class="p-2">${(f.seq_len || 0).toLocaleString()}</td>
+      <td class="p-2 text-accent-cyan">${f.total_hits || 0}</td>
+      <td class="p-2 text-slate-400 truncate max-w-[240px]">${esc(tags)}</td>
+      <td class="p-2">${arts}</td></tr>`;
+  }).join("");
+}
+
+function showFileDetail(f) {
+  const box = document.getElementById("file-detail");
+  box.classList.remove("hidden");
+  document.getElementById("file-detail-title").textContent = f.name;
+  document.getElementById("file-detail-body").textContent = JSON.stringify(f, null, 2);
+}
+
+function renderSimilarity() {
+  const data = STATE.data || DEMO;
+  const edges = data.edges || [];
+  const body = document.getElementById("sim-body");
+  const empty = document.getElementById("sim-empty");
+  document.getElementById("sim-caption").textContent =
+    data.description || "Exact shared LEFT/RIGHT flanks between files (Phase 2).";
+  if (!edges.length) {
+    body.innerHTML = ""; empty.classList.remove("hidden"); return;
+  }
+  empty.classList.add("hidden");
+  body.innerHTML = edges.map(e => `<tr class="border-b border-ink-800">
+    <td class="p-2 max-w-[160px] truncate">${esc(e.file_a)}</td>
+    <td class="p-2 max-w-[160px] truncate">${esc(e.file_b)}</td>
+    <td class="p-2">${e.shared_flank_hits ?? ""}</td>
+    <td class="p-2">${e.pair_support_count ?? ""}</td>
+    <td class="p-2 text-accent-amber">${e.similarity_score ?? ""}</td>
+    <td class="p-2">${esc(e.top_label || "")}</td>
+    <td class="p-2 max-w-[200px] truncate">${esc(Array.isArray(e.markers) ? e.markers.join("; ") : (e.markers || ""))}</td>
+  </tr>`).join("");
+}
+
+function renderComposition() {
+  const data = STATE.data || DEMO;
+  const rows = data.composition_rows || [];
+  const body = document.getElementById("comp-body");
+  const empty = document.getElementById("comp-empty");
+  if (!rows.length) {
+    body.innerHTML = ""; empty.classList.remove("hidden"); return;
+  }
+  empty.classList.add("hidden");
+  body.innerHTML = rows.slice(0, 2000).map(r => `<tr class="border-b border-ink-800">
+    <td class="p-2 max-w-[200px] truncate">${esc(r.file)}</td>
+    <td class="p-2">${esc(r.marker)}</td>
+    <td class="p-2">${r.fwd ?? ""}</td>
+    <td class="p-2">${r.rev ?? ""}</td>
+    <td class="p-2 text-accent-cyan">${r.total ?? ""}</td>
+    <td class="p-2">${r.density_per_kb ?? ""}</td>
+  </tr>`).join("");
+}
+
+
+function shortName(s, n) {
+  s = String(s || "");
+  return s.length <= n ? s : s.slice(0, n - 1) + "…";
+}
+
+
+function renderIncSummary() {
+  const data = STATE.data || DEMO;
+  const summary = data.inc_summary || {};
+  const rows = summary.files || [];
+  const fam = summary.family_file_counts || {};
+  const famEl = document.getElementById("incsum-families");
+  const body = document.getElementById("incsum-body");
+  const empty = document.getElementById("incsum-empty");
+  const cap = document.getElementById("incsum-caption");
+  if (cap && summary.description) cap.textContent = summary.description;
+  if (famEl) {
+    const keys = Object.keys(fam);
+    famEl.innerHTML = keys.length
+      ? keys.sort((a,b) => fam[b]-fam[a]).map(k =>
+          `<span class="chip border-cyan-500/30 text-accent-cyan bg-cyan-500/10 px-2 py-1 rounded">${esc(k)} · ${fam[k]}</span>`
+        ).join("")
+      : "";
+  }
+  if (!rows.length) {
+    if (body) body.innerHTML = "";
+    if (empty) empty.classList.remove("hidden");
+    return;
+  }
+  if (empty) empty.classList.add("hidden");
+  if (body) body.innerHTML = rows.map(r => `<tr class="border-b border-ink-800 hover:bg-ink-800/40">
+    <td class="p-2 max-w-[220px] truncate" title="${esc(r.file)}">${esc(shortName(r.file, 36))}</td>
+    <td class="p-2 text-accent-amber">${esc((r.families||[]).join(", "))}</td>
+    <td class="p-2 text-slate-300">${esc((r.inc_markers||[]).join(", "))}</td>
+    <td class="p-2">${r.chassis_origin_hits ?? ""}</td>
+    <td class="p-2">${r.seamless_assembly_hits ?? ""}</td>
+    <td class="p-2">${r.antibiotic_res_hits ?? ""}</td>
+  </tr>`).join("");
+}
+
+function renderIncorporation() {
+  const data = STATE.data || DEMO;
+  const rows = (data.incorporation || []).slice();
+  const minC = parseInt((document.getElementById("inc-min") || {}).value || "1", 10) || 0;
+  const hideDup = !!(document.getElementById("inc-hide-dup") || {}).checked;
+  const filtered = rows.filter(r => {
+    if ((r.context_count || 0) < minC) return false;
+    if (hideDup && r.same_accession) return false;
+    return true;
+  }).sort((a, b) => (b.context_count || 0) - (a.context_count || 0));
+
+  const body = document.getElementById("inc-body");
+  const empty = document.getElementById("inc-empty");
+  if (!filtered.length) {
+    if (body) body.innerHTML = "";
+    if (empty) empty.classList.remove("hidden");
+  } else {
+    if (empty) empty.classList.add("hidden");
+    if (body) body.innerHTML = filtered.map(r => {
+      const marks = (r.foreign_markers || []).join(", ");
+      const acc = r.same_accession ? '<span class="text-accent-cyan">yes</span>' : "no";
+      return `<tr class="border-b border-ink-800 hover:bg-ink-800/40">
+        <td class="p-2 max-w-[220px] truncate" title="${esc(r.origin_file)}">${esc(shortName(r.origin_file, 36))}</td>
+        <td class="p-2 max-w-[220px] truncate" title="${esc(r.target_file)}">${esc(shortName(r.target_file, 36))}</td>
+        <td class="p-2 text-accent-amber">${r.context_count ?? ""}</td>
+        <td class="p-2">${r.max_risk ?? ""}</td>
+        <td class="p-2">${acc}</td>
+        <td class="p-2 text-slate-300">${esc(marks)}</td>
+      </tr>`;
+    }).join("");
+  }
+  drawIncorporationCanvas(filtered);
+}
+
+function drawIncorporationCanvas(rows) {
+  const canvas = document.getElementById("inc-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const dpr = window.devicePixelRatio || 1;
+  const cssW = canvas.clientWidth || 900;
+  const cssH = 420;
+  canvas.width = Math.floor(cssW * dpr);
+  canvas.height = Math.floor(cssH * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = "#0b1220";
+  ctx.fillRect(0, 0, cssW, cssH);
+
+  if (!rows || !rows.length) {
+    ctx.fillStyle = "#64748b";
+    ctx.font = "12px ui-monospace, monospace";
+    ctx.fillText("No incorporation links to plot", 16, 28);
+    return;
+  }
+
+  const files = [];
+  const seen = new Set();
+  const act = {};
+  rows.forEach(r => {
+    [r.origin_file, r.target_file].forEach(f => {
+      if (!f) return;
+      act[f] = (act[f] || 0) + (r.context_count || 1);
+      if (!seen.has(f)) { seen.add(f); files.push(f); }
+    });
+  });
+  files.sort((a, b) => (act[b] || 0) - (act[a] || 0));
+  const maxN = 28;
+  const labels = files.slice(0, maxN);
+  const idx = Object.fromEntries(labels.map((f, i) => [f, i]));
+  const n = labels.length;
+  const padL = 120, padT = 16, padR = 16, padB = 100;
+  const gridW = cssW - padL - padR;
+  const gridH = cssH - padT - padB;
+  const cell = Math.min(gridW / Math.max(n, 1), gridH / Math.max(n, 1));
+  const maxC = Math.max(1, ...rows.map(r => r.context_count || 0));
+
+  function color(c, risk, same) {
+    const t = Math.min(1, c / maxC);
+    const r = Math.floor(30 + t * 200);
+    const g = Math.floor(40 + (1 - t) * 30 + (risk / 100) * 40);
+    const b = Math.floor(80 + (1 - t) * 40);
+    return same ? `rgba(100, 200, 255, ${0.25 + 0.55 * t})` : `rgba(${r},${g},${b},${0.35 + 0.55 * t})`;
+  }
+
+  // grid cells
+  rows.forEach(r => {
+    const i = idx[r.origin_file];
+    const j = idx[r.target_file];
+    if (i == null || j == null) return;
+    const x = padL + j * cell;
+    const y = padT + i * cell;
+    ctx.fillStyle = color(r.context_count || 1, r.max_risk || 0, r.same_accession);
+    ctx.fillRect(x, y, cell - 1, cell - 1);
+    if (r.same_accession) {
+      ctx.strokeStyle = "#66ccff";
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(x + 0.5, y + 0.5, cell - 2, cell - 2);
+    }
+    if (cell > 18) {
+      ctx.fillStyle = "#e2e8f0";
+      ctx.font = `${Math.min(10, cell * 0.4)}px ui-monospace, monospace`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(String(r.context_count || ""), x + cell / 2, y + cell / 2);
+    }
+  });
+
+  // labels
+  ctx.fillStyle = "#94a3b8";
+  ctx.font = "9px ui-monospace, monospace";
+  labels.forEach((f, i) => {
+    const name = shortName(f.replace(/\.fasta$/i, ""), 18);
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+    ctx.fillText(name, padL - 6, padT + i * cell + cell / 2);
+    ctx.save();
+    ctx.translate(padL + i * cell + cell / 2, padT + n * cell + 8);
+    ctx.rotate(-Math.PI / 3);
+    ctx.textAlign = "right";
+    ctx.textBaseline = "top";
+    ctx.fillText(name, 0, 0);
+    ctx.restore();
+  });
+
+  ctx.fillStyle = "#64748b";
+  ctx.font = "10px ui-monospace, monospace";
+  ctx.textAlign = "left";
+  ctx.fillText("rows = origin (flank source) · cols = target (found in) · brighter = more foreign-marker contexts", 12, cssH - 14);
+}
+
+function renderArtifacts() {
+  const data = STATE.data || DEMO;
+  const list = document.getElementById("artifact-list");
+  const empty = document.getElementById("artifact-empty");
+  const paths = data.artifact_paths || [];
+  if (!paths.length) {
+    list.innerHTML = ""; empty.classList.remove("hidden"); return;
+  }
+  empty.classList.add("hidden");
+  list.innerHTML = paths.map(p => `<li class="text-slate-400"><i class="fa-regular fa-file text-accent-cyan mr-1"></i>${esc(p)}</li>`).join("");
+}
+
+function esc(s) {
+  return String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+
+async function loadRunManifest() {
+  try {
+    const r = await fetch("Audit_Library/index.json", { cache: "no-store" });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch (_) { return null; }
+}
+
+async function selectRun(runId) {
+  const url = "Audit_Library/" + runId + "/portal_snapshot.json";
+  try {
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const j = await r.json();
+    applyData(j, "run:" + runId);
+    const u = new URL(location.href);
+    u.searchParams.set("run", runId);
+    history.replaceState(null, "", u);
+  } catch (e) {
+    alert("Could not load run " + runId + ": " + e.message);
+  }
+}
+
+async function tryFetchSnapshot() {
+  const candidates = [
+    "Audit_Library/latest/portal_snapshot.json",
+    "Forensic_Results/Global_Evidence/portal_snapshot.json",
+    "./Forensic_Results/Global_Evidence/portal_snapshot.json",
+    "./portal_snapshot.json",
+    "portal_snapshot.json",
+    "Global_Evidence/portal_snapshot.json"
+  ];
+  // Prefer explicit run from ?run=ID or runs/index.json latest
+  try {
+    const params = new URLSearchParams(location.search);
+    const runId = params.get("run");
+    if (runId) {
+      candidates.unshift("Audit_Library/" + runId + "/portal_snapshot.json");
+    }
+  } catch (_) {}
+  for (const url of candidates) {
+    try {
+      const r = await fetch(url, { cache: "no-store" });
+      if (r.ok) {
+        const j = await r.json();
+        applyData(j, "fetch:" + url);
+        return true;
+      }
+    } catch (_) { /* file:// or missing */ }
+  }
+  return false;
+}
+
+async function reloadLive() {
+  const ok = await tryFetchSnapshot();
+  if (ok) return;
+  if (window.__FORENSIC_DATA__ && typeof window.__FORENSIC_DATA__ === "object") {
+    applyData(window.__FORENSIC_DATA__, "injected");
+    return;
+  }
+  applyData(DEMO, "demo");
+}
+
+document.getElementById("file-snapshot").addEventListener("change", async (ev) => {
+  const f = ev.target.files && ev.target.files[0];
+  if (!f) return;
+  try {
+    const text = await f.text();
+    applyData(JSON.parse(text), "upload:" + f.name);
+  } catch (e) {
+    alert("Invalid JSON: " + e.message);
+  }
+});
+
+window.addEventListener("resize", () => drawStrip());
+
+(async function boot() {
+  try {
+    // Standalone mode: load portal_snapshot.json from the results database.
+    // Injected __FORENSIC_DATA__ is optional legacy only (not used by Streamlit anymore).
+    const ok = await tryFetchSnapshot();
+    if (ok) return;
+    if (window.__FORENSIC_DATA__ && typeof window.__FORENSIC_DATA__ === "object") {
+      applyData(window.__FORENSIC_DATA__, "injected");
+      return;
+    }
+    applyData(DEMO, "demo");
+
+  const man = await loadRunManifest();
+  const sel = document.getElementById("run-select");
+  if (man && sel && Array.isArray(man.runs)) {
+    sel.innerHTML = man.runs.map(r =>
+      `<option value="${r.id}">${r.id}</option>`
+    ).join("");
+    sel.onchange = () => selectRun(sel.value);
+    const params = new URLSearchParams(location.search);
+    const want = params.get("run") || man.latest;
+    if (want) {
+      sel.value = want;
+      // tryFetchSnapshot already ran; optional re-load
+    }
+  }
+  } catch (err) {
+    console.error("portal boot failed", err);
+    try { applyData(DEMO, "demo"); } catch (_) {}
+  }
+})();
+</script>
+</body>
+</html>

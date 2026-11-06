@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+*.so
+
+# Runtime data — do not ship user genomes or audit outputs
+Audit_Library/
+backup/
+Clinical_Samples/
+Industrial_Sources/
+Reference_Archive/
+Forensic_Results/
+*.fasta
+*.fa
+*.fastq
+*.fna
+*.fq
+*.gb
+*.genbank
+*.gbk
+*.gff
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Secrets / local overrides
+Configuration.local.txt
+*.pem
+*.key
+secrets.*
+
+# Patch scratch (optional local work)
+PATCH_*.py
+Forensic_Patches.zip

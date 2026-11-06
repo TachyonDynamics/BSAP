@@ -1,0 +1,2635 @@
+{
+  "generated_at": "2026-11-05T21:18:54",
+  "description": "Cross-file flank reuse graph from Phase 2 exact Aho-Corasick hits. Not whole-genome identity. same_accession=true means shared accession token (e.g. CLN/IND copy of same GenBank record) \u2014 treat as duplicate, not independent evidence.",
+  "config_stamp": {
+    "stamp_version": 1,
+    "created_utc": "2026-11-06T05:18:54Z",
+    "config_sha256_16": "55f3d6f69842ff95",
+    "targets_path": "C:\\bsap\\Targets.json",
+    "gates": {
+      "FORENSIC_EVIDENCE_MIN_LEN": "24",
+      "COMPOSITION_FAST_ONLY": "1",
+      "COMPOSITION_AC_MIN_LEN": "12",
+      "COMPOSITION_OMIT_ULTRA_SHORT": "1",
+      "MATCH_THRESHOLD": "100",
+      "FLANK_AUTO": "24",
+      "FLANK_MAX_MISMATCH": "0",
+      "FLANK_MIN_IDENTITY": "0.0",
+      "TARGETS_PANEL": "full",
+      "MAX_CORES": "6",
+      "LARGE_FILE_THRESHOLD_MB": "",
+      "LARGE_FILE_MAX_HITS": "250000",
+      "ENABLE_HEATMAPS": "1",
+      "ENABLE_BIOPHYSICS": "1",
+      "ENABLE_SONIFICATION": "1",
+      "ENABLE_RF_HEURISTICS": "1",
+      "ENABLE_CIRCUIT": "1",
+      "ENABLE_CODON_BIAS": "1",
+      "WATERFALL_INCLUDE_COMPOSITION": "0",
+      "REF_DISTANCE_SIDECAR": "0",
+      "TEST_MODE": "0"
+    },
+    "note": "Fingerprint of Configuration.txt gates for this run. Not a diagnosis; use to compare audits."
+  },
+  "files": [
+    {
+      "name": "AAV2_Vector_AF043303.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 4679,
+      "by_tag": {
+        "VIRAL_VECTOR": 2
+      },
+      "total_hits": 2
+    },
+    {
+      "name": "AAV_Vector_Standard_AF043303.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 4679,
+      "by_tag": {
+        "VIRAL_VECTOR": 2
+      },
+      "total_hits": 2
+    },
+    {
+      "name": "Aspergillus_Niger_Super_AM270980.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 3625813,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "A_niger_Contig_AM270980.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 3625813,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "B_subtilis_168_WT_AL009126.3.fasta",
+      "category": "OUT_REF",
+      "seq_len": 4215606,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Candida_Albicans_Chr1_CP025158.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 3186810,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Cellulose_Synthase_Ind_CP000133.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 4381608,
+      "by_tag": {
+        "WRC_SENSITIVE": 3
+      },
+      "total_hits": 3
+    },
+    {
+      "name": "ColE1_Plasmid_J01566.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 6646,
+      "by_tag": {
+        "CHASSIS_ORIGIN": 2
+      },
+      "total_hits": 2
+    },
+    {
+      "name": "Curli_Fiber_CsgA_NC_000913.3.fasta",
+      "category": "OUT_IND",
+      "seq_len": 4641652,
+      "by_tag": {
+        "CHASSIS_ORIGIN": 1
+      },
+      "total_hits": 1
+    },
+    {
+      "name": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 8739,
+      "by_tag": {
+        "ANTIBIOTIC_RES": 3,
+        "CHASSIS_ORIGIN": 6,
+        "INDUSTRIAL_BACKBONE": 1,
+        "REPORTER_GENE": 1,
+        "SEAMLESS_ASSEMBLY": 4
+      },
+      "total_hits": 15
+    },
+    {
+      "name": "C_glutamicum_ATCC13032_BX927147.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 3282708,
+      "by_tag": {
+        "WRC_SENSITIVE": 4
+      },
+      "total_hits": 4
+    },
+    {
+      "name": "Extremophile_Basal_DNA_AE009950.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 1908256,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "E_coli_K12_MG1655_U00096.3.fasta",
+      "category": "OUT_IND",
+      "seq_len": 4641652,
+      "by_tag": {
+        "CHASSIS_ORIGIN": 1
+      },
+      "total_hits": 1
+    },
+    {
+      "name": "FMDV_TypeO_Clinical_AY593815.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 8194,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "GCF_000325575.1_ASM32557v1_protein.faa",
+      "category": "OUT_REF",
+      "seq_len": 25000366,
+      "by_tag": {
+        "SEAMLESS_ASSEMBLY": 21
+      },
+      "total_hits": 21
+    },
+    {
+      "name": "GCF_000325575.1_ASM32557v1_rna_from_genomic.fna",
+      "category": "OUT_REF",
+      "seq_len": 142022679,
+      "by_tag": {
+        "PURIFICATION_TAG": 4,
+        "SYNTHETIC_LINKER": 1,
+        "WRC_SENSITIVE": 61
+      },
+      "total_hits": 66
+    },
+    {
+      "name": "GRCh38_latest_rna.fna",
+      "category": "OUT_REF",
+      "seq_len": 715492959,
+      "by_tag": {
+        "LAB_MARKER": 22,
+        "PURIFICATION_TAG": 102,
+        "WRC_SENSITIVE": 220
+      },
+      "total_hits": 344
+    },
+    {
+      "name": "HBV_ayw_NC_003977.2.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 3182,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Historical_Control_1918_AL513382.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 4809037,
+      "by_tag": {
+        "WRC_SENSITIVE": 2
+      },
+      "total_hits": 2
+    },
+    {
+      "name": "HIV1_HXB2_K03455.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 9719,
+      "by_tag": {
+        "VIRAL_VECTOR": 5
+      },
+      "total_hits": 5
+    },
+    {
+      "name": "HPV16_Reference_NC_001526.4.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 7906,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Human_Mitochondrion_NC_012920.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 16569,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Human_Reference_Decoy_NC_000021.9.fasta",
+      "category": "OUT_REF",
+      "seq_len": 39034236,
+      "by_tag": {
+        "PURIFICATION_TAG": 1,
+        "WRC_SENSITIVE": 1
+      },
+      "total_hits": 2
+    },
+    {
+      "name": "human_t2t.fna",
+      "category": "OUT_REF",
+      "seq_len": 3117275501,
+      "by_tag": {
+        "GOF_UPGRADE": 2,
+        "LAB_MARKER": 66,
+        "PURIFICATION_TAG": 1128,
+        "SYNTHETIC_LINKER": 4,
+        "VACCINE_VECTOR": 2,
+        "WRC_SENSITIVE": 158
+      },
+      "total_hits": 1360
+    },
+    {
+      "name": "JockItch_T_rubrum_GG700648.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 4087159,
+      "by_tag": {
+        "PURIFICATION_TAG": 1
+      },
+      "total_hits": 1
+    },
+    {
+      "name": "Lambda_Phage_NC_001416.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 48502,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Lentivirus_Vector_pLKO1_FJ182853.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 512,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Lyme_B_burgdorferi_B31_AE000783.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 910724,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "L_plantarum_RS20D_CP042255.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 3234503,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "L_plantarum_WCFS1_2003_AL935263.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 3308274,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "mE2_Green_Vector_PV867284.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 934,
+      "by_tag": {
+        "REPORTER_GENE": 1
+      },
+      "total_hits": 1
+    },
+    {
+      "name": "Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 12387,
+      "by_tag": {
+        "ANTIBIOTIC_RES": 1,
+        "CHASSIS_ORIGIN": 1,
+        "GATEWAY_CLONING": 2,
+        "LAB_MARKER": 2,
+        "PURIFICATION_TAG": 1
+      },
+      "total_hits": 7
+    },
+    {
+      "name": "Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 10662,
+      "by_tag": {
+        "VIRAL_VECTOR": 3
+      },
+      "total_hits": 3
+    },
+    {
+      "name": "Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 12387,
+      "by_tag": {
+        "ANTIBIOTIC_RES": 1,
+        "CHASSIS_ORIGIN": 1,
+        "GATEWAY_CLONING": 2,
+        "LAB_MARKER": 2,
+        "PURIFICATION_TAG": 1
+      },
+      "total_hits": 7
+    },
+    {
+      "name": "Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 10662,
+      "by_tag": {
+        "VIRAL_VECTOR": 3
+      },
+      "total_hits": 3
+    },
+    {
+      "name": "Pantoea_Plasmid_pCFSAN_CP034478.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 82291,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "PASylation_Cloaking_KY053151.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 1052,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "pBR322_Plasmid_J01749.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 4361,
+      "by_tag": {
+        "ANTIBIOTIC_RES": 3,
+        "CHASSIS_ORIGIN": 5,
+        "INDUSTRIAL_BACKBONE": 1
+      },
+      "total_hits": 9
+    },
+    {
+      "name": "pDBP796mCherry_GFP_PQ628083.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 3562,
+      "by_tag": {
+        "REPORTER_GENE": 2
+      },
+      "total_hits": 2
+    },
+    {
+      "name": "PhiX174_Phage_NC_001422.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 5386,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 3241,
+      "by_tag": {
+        "ANTIBIOTIC_RES": 3,
+        "CHASSIS_ORIGIN": 6,
+        "INDUSTRIAL_BACKBONE": 1,
+        "REPORTER_GENE": 1
+      },
+      "total_hits": 11
+    },
+    {
+      "name": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 14524,
+      "by_tag": {
+        "ANTIBIOTIC_RES": 3,
+        "CHASSIS_ORIGIN": 6,
+        "INDUSTRIAL_BACKBONE": 1,
+        "LAB_MARKER": 1,
+        "REPORTER_GENE": 1
+      },
+      "total_hits": 12
+    },
+    {
+      "name": "pUC19_Plasmid_L09137.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 2686,
+      "by_tag": {
+        "ANTIBIOTIC_RES": 3,
+        "CHASSIS_ORIGIN": 6,
+        "INDUSTRIAL_BACKBONE": 1
+      },
+      "total_hits": 10
+    },
+    {
+      "name": "P_gingivalis_ATCC33277_CLN_AP009380.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 2354886,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "P_gingivalis_ATCC33277_REF_AP009380.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 2354886,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "P_gingivalis_W83_CLN_AE015924.1.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 2343476,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "P_gingivalis_W83_REF_AE015924.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 2343476,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "P_pastoris_GS115_FN392319.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 2798491,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Spider_Silk_Synthetic_FJ973216.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 665,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "SV40_Virus_NC_001669.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 5243,
+      "by_tag": {
+        "VACCINE_VECTOR": 2,
+        "VIRAL_ORIGIN": 2
+      },
+      "total_hits": 4
+    },
+    {
+      "name": "S_aureus_NCTC8325_CP000253.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 2821361,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "S_mutans_UA159_Ancient_AE014133.2.fasta",
+      "category": "OUT_REF",
+      "seq_len": 2032925,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "S_mutans_UA159_CLN_AE014133.2.fasta",
+      "category": "OUT_CLN",
+      "seq_len": 2032925,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "T7_Phage_NC_001604.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 39937,
+      "by_tag": {
+        "LAB_MARKER": 13
+      },
+      "total_hits": 13
+    },
+    {
+      "name": "V_natriegens_Vmax_CP016345.1.fasta",
+      "category": "OUT_IND",
+      "seq_len": 3241530,
+      "by_tag": {},
+      "total_hits": 0
+    },
+    {
+      "name": "Yeast_Mitochondrion_NC_001224.1.fasta",
+      "category": "OUT_REF",
+      "seq_len": 85779,
+      "by_tag": {},
+      "total_hits": 0
+    }
+  ],
+  "categories": [
+    "ANTIBIOTIC_RES",
+    "CHASSIS_ORIGIN",
+    "GATEWAY_CLONING",
+    "GOF_UPGRADE",
+    "INDUSTRIAL_BACKBONE",
+    "LAB_MARKER",
+    "PURIFICATION_TAG",
+    "REPORTER_GENE",
+    "SEAMLESS_ASSEMBLY",
+    "SYNTHETIC_LINKER",
+    "VACCINE_VECTOR",
+    "VIRAL_ORIGIN",
+    "VIRAL_VECTOR",
+    "WRC_SENSITIVE"
+  ],
+  "edges": [
+    {
+      "file_a": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "file_b": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "shared_flank_hits": 12,
+      "pair_support_count": 6,
+      "similarity_score": 60,
+      "labels": {
+        "FLANK_CROSS_PAIR": 12
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "file_b": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "shared_flank_hits": 12,
+      "pair_support_count": 6,
+      "similarity_score": 60,
+      "labels": {
+        "FLANK_CROSS_PAIR": 12
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "file_b": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "shared_flank_hits": 12,
+      "pair_support_count": 6,
+      "similarity_score": 60,
+      "labels": {
+        "FLANK_CROSS_PAIR": 12
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "file_b": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "shared_flank_hits": 12,
+      "pair_support_count": 6,
+      "similarity_score": 60,
+      "labels": {
+        "FLANK_CROSS_PAIR": 12
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_CLN/AAV_Vector_Standard_AF043303.1.fasta",
+      "file_b": "OUT_IND/AAV2_Vector_AF043303.1.fasta",
+      "shared_flank_hits": 10,
+      "pair_support_count": 2,
+      "similarity_score": 26,
+      "labels": {
+        "FLANK_CROSS_PAIR": 10
+      },
+      "markers": [
+        "AAV2_ITR_Core"
+      ],
+      "same_accession": true,
+      "accession": "AF043303",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": "DUPLICATE_SEQUENCE_WARNING: same accession in both filenames \u2014 not independent biological cross-link"
+    },
+    {
+      "file_a": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "file_b": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "shared_flank_hits": 10,
+      "pair_support_count": 4,
+      "similarity_score": 42,
+      "labels": {
+        "FLANK_CROSS_PAIR": 8,
+        "FLANK_INCORPORATION_WARNING": 2
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "file_b": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "shared_flank_hits": 10,
+      "pair_support_count": 4,
+      "similarity_score": 42,
+      "labels": {
+        "FLANK_CROSS_PAIR": 8,
+        "FLANK_INCORPORATION_WARNING": 2
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "file_b": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "shared_flank_hits": 10,
+      "pair_support_count": 4,
+      "similarity_score": 42,
+      "labels": {
+        "FLANK_CROSS_PAIR": 8,
+        "FLANK_INCORPORATION_WARNING": 2
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "file_b": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "shared_flank_hits": 10,
+      "pair_support_count": 4,
+      "similarity_score": 42,
+      "labels": {
+        "FLANK_CROSS_PAIR": 8,
+        "FLANK_INCORPORATION_WARNING": 2
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "file_b": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "shared_flank_hits": 10,
+      "pair_support_count": 4,
+      "similarity_score": 42,
+      "labels": {
+        "FLANK_INCORPORATION_WARNING": 2,
+        "FLANK_CROSS_PAIR": 8
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "file_b": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "shared_flank_hits": 10,
+      "pair_support_count": 4,
+      "similarity_score": 42,
+      "labels": {
+        "FLANK_INCORPORATION_WARNING": 2,
+        "FLANK_CROSS_PAIR": 8
+      },
+      "markers": [
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_CLN/HIV1_HXB2_K03455.1.fasta",
+      "file_b": "OUT_CLN/Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "shared_flank_hits": 6,
+      "pair_support_count": 0,
+      "similarity_score": 6,
+      "labels": {
+        "FLANK_CROSS_SAME_MARKER": 1,
+        "FLANK_INCORPORATION_WARNING": 3,
+        "FLANK_CROSS_SOLITARY": 2
+      },
+      "markers": [
+        "HIV1_LTR_U5_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_INCORPORATION_WARNING",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_CLN/HIV1_HXB2_K03455.1.fasta",
+      "file_b": "OUT_IND/Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "shared_flank_hits": 6,
+      "pair_support_count": 0,
+      "similarity_score": 6,
+      "labels": {
+        "FLANK_CROSS_SAME_MARKER": 1,
+        "FLANK_INCORPORATION_WARNING": 3,
+        "FLANK_CROSS_SOLITARY": 2
+      },
+      "markers": [
+        "HIV1_LTR_U5_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_INCORPORATION_WARNING",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_CLN/Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "file_b": "OUT_IND/Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "shared_flank_hits": 5,
+      "pair_support_count": 1,
+      "similarity_score": 13,
+      "labels": {
+        "FLANK_CROSS_SOLITARY": 1,
+        "FLANK_INCORPORATION_WARNING": 2,
+        "FLANK_CROSS_PAIR": 2
+      },
+      "markers": [
+        "HIV1_LTR_U5_Core"
+      ],
+      "same_accession": true,
+      "accession": "OK558602",
+      "top_label": "FLANK_INCORPORATION_WARNING",
+      "note": "DUPLICATE_SEQUENCE_WARNING: same accession in both filenames \u2014 not independent biological cross-link"
+    },
+    {
+      "file_a": "OUT_CLN/Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "file_b": "OUT_IND/Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "shared_flank_hits": 4,
+      "pair_support_count": 2,
+      "similarity_score": 20,
+      "labels": {
+        "FLANK_CROSS_PAIR": 4
+      },
+      "markers": [
+        "attR1_Gateway"
+      ],
+      "same_accession": true,
+      "accession": "MN187559",
+      "top_label": "FLANK_CROSS_PAIR",
+      "note": "DUPLICATE_SEQUENCE_WARNING: same accession in both filenames \u2014 not independent biological cross-link"
+    },
+    {
+      "file_a": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "file_b": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "shared_flank_hits": 2,
+      "pair_support_count": 0,
+      "similarity_score": 2,
+      "labels": {
+        "FLANK_INCORPORATION_WARNING": 1,
+        "FLANK_CROSS_SAME_MARKER": 1
+      },
+      "markers": [
+        "ColE1_RNA_I_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_INCORPORATION_WARNING",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "file_b": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "shared_flank_hits": 2,
+      "pair_support_count": 0,
+      "similarity_score": 2,
+      "labels": {
+        "FLANK_INCORPORATION_WARNING": 1,
+        "FLANK_CROSS_SAME_MARKER": 1
+      },
+      "markers": [
+        "ColE1_RNA_I_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_INCORPORATION_WARNING",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "file_b": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "shared_flank_hits": 2,
+      "pair_support_count": 0,
+      "similarity_score": 2,
+      "labels": {
+        "FLANK_INCORPORATION_WARNING": 1,
+        "FLANK_CROSS_SAME_MARKER": 1
+      },
+      "markers": [
+        "ColE1_RNA_I_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_INCORPORATION_WARNING",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "file_b": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "shared_flank_hits": 2,
+      "pair_support_count": 0,
+      "similarity_score": 2,
+      "labels": {
+        "FLANK_CROSS_SAME_MARKER": 1,
+        "FLANK_INCORPORATION_WARNING": 1
+      },
+      "markers": [
+        "ColE1_RNA_I_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_SAME_MARKER",
+      "note": ""
+    },
+    {
+      "file_a": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "file_b": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "shared_flank_hits": 2,
+      "pair_support_count": 0,
+      "similarity_score": 2,
+      "labels": {
+        "FLANK_CROSS_SAME_MARKER": 1,
+        "FLANK_INCORPORATION_WARNING": 1
+      },
+      "markers": [
+        "ColE1_RNA_I_Core"
+      ],
+      "same_accession": false,
+      "accession": "",
+      "top_label": "FLANK_CROSS_SAME_MARKER",
+      "note": ""
+    }
+  ],
+  "composition_rows": [
+    {
+      "file": "AAV2_Vector_AF043303.1.fasta",
+      "marker": "AAV2_ITR_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.4274
+    },
+    {
+      "file": "AAV_Vector_Standard_AF043303.1.fasta",
+      "marker": "AAV2_ITR_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.4274
+    },
+    {
+      "file": "Cellulose_Synthase_Ind_CP000133.1.fasta",
+      "marker": "Furin_Cleavage",
+      "fwd": 2,
+      "rev": 1,
+      "total": 3,
+      "density_per_kb": 0.0007
+    },
+    {
+      "file": "ColE1_Plasmid_J01566.1.fasta",
+      "marker": "ColE1_RNA_I_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.3009
+    },
+    {
+      "file": "Curli_Fiber_CsgA_NC_000913.3.fasta",
+      "marker": "f1_Origin",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0002
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "loxP_Site",
+      "fwd": 0,
+      "rev": 4,
+      "total": 4,
+      "density_per_kb": 0.4577
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "EGFP_Marker",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.1144
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "pBR322_Ori",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.1144
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "AmpR_bla_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.2289
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "pET_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.1144
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "AmpR_Marker",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.1144
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "p15A_Origin_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.2289
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "ColE1_RNA_I_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.2289
+    },
+    {
+      "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+      "marker": "f1_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.1144
+    },
+    {
+      "file": "C_glutamicum_ATCC13032_BX927147.1.fasta",
+      "marker": "Furin_Cleavage",
+      "fwd": 2,
+      "rev": 2,
+      "total": 4,
+      "density_per_kb": 0.0012
+    },
+    {
+      "file": "E_coli_K12_MG1655_U00096.3.fasta",
+      "marker": "f1_Origin",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0002
+    },
+    {
+      "file": "GCF_000325575.1_ASM32557v1_protein.faa",
+      "marker": "Gibson_Overlap",
+      "fwd": 21,
+      "rev": 0,
+      "total": 21,
+      "density_per_kb": 0.0008
+    },
+    {
+      "file": "GCF_000325575.1_ASM32557v1_rna_from_genomic.fna",
+      "marker": "Furin_Cleavage",
+      "fwd": 23,
+      "rev": 38,
+      "total": 61,
+      "density_per_kb": 0.0004
+    },
+    {
+      "file": "GCF_000325575.1_ASM32557v1_rna_from_genomic.fna",
+      "marker": "Engineered_Linker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "GCF_000325575.1_ASM32557v1_rna_from_genomic.fna",
+      "marker": "His_Tag_6x",
+      "fwd": 2,
+      "rev": 2,
+      "total": 4,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "GRCh38_latest_rna.fna",
+      "marker": "Furin_Cleavage",
+      "fwd": 22,
+      "rev": 198,
+      "total": 220,
+      "density_per_kb": 0.0003
+    },
+    {
+      "file": "GRCh38_latest_rna.fna",
+      "marker": "CYC1_Terminator",
+      "fwd": 16,
+      "rev": 6,
+      "total": 22,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "GRCh38_latest_rna.fna",
+      "marker": "His_Tag_6x",
+      "fwd": 50,
+      "rev": 52,
+      "total": 102,
+      "density_per_kb": 0.0001
+    },
+    {
+      "file": "Historical_Control_1918_AL513382.1.fasta",
+      "marker": "Furin_Cleavage",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.0004
+    },
+    {
+      "file": "HIV1_HXB2_K03455.1.fasta",
+      "marker": "HIV1_LTR_U5_Core",
+      "fwd": 4,
+      "rev": 0,
+      "total": 4,
+      "density_per_kb": 0.4116
+    },
+    {
+      "file": "HIV1_HXB2_K03455.1.fasta",
+      "marker": "RRE_Element",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.1029
+    },
+    {
+      "file": "Human_Reference_Decoy_NC_000021.9.fasta",
+      "marker": "His_Tag_6x",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "Human_Reference_Decoy_NC_000021.9.fasta",
+      "marker": "Furin_Cleavage",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "His_Tag_6x",
+      "fwd": 570,
+      "rev": 558,
+      "total": 1128,
+      "density_per_kb": 0.0004
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "Furin_Cleavage",
+      "fwd": 60,
+      "rev": 98,
+      "total": 158,
+      "density_per_kb": 0.0001
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "CYC1_Terminator",
+      "fwd": 34,
+      "rev": 22,
+      "total": 56,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "Engineered_Linker",
+      "fwd": 4,
+      "rev": 0,
+      "total": 4,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "GAL1_Promoter",
+      "fwd": 4,
+      "rev": 4,
+      "total": 8,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "EF1a_Promoter",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "SV40_Promoter",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "human_t2t.fna",
+      "marker": "NLS_Signal",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.0
+    },
+    {
+      "file": "JockItch_T_rubrum_GG700648.1.fasta",
+      "marker": "His_Tag_6x",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0002
+    },
+    {
+      "file": "mE2_Green_Vector_PV867284.1.fasta",
+      "marker": "EGFP_Marker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 1.0707
+    },
+    {
+      "file": "Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "marker": "attR1_Gateway",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.1615
+    },
+    {
+      "file": "Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "marker": "f1_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.0807
+    },
+    {
+      "file": "Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "marker": "His_Tag_6x",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0807
+    },
+    {
+      "file": "Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "marker": "NOS_Terminator",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.1615
+    },
+    {
+      "file": "Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "marker": "KanR_Marker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0807
+    },
+    {
+      "file": "Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "marker": "RRE_Element",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0938
+    },
+    {
+      "file": "Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "marker": "HIV1_LTR_U5_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.1876
+    },
+    {
+      "file": "Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "marker": "attR1_Gateway",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.1615
+    },
+    {
+      "file": "Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "marker": "f1_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.0807
+    },
+    {
+      "file": "Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "marker": "His_Tag_6x",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0807
+    },
+    {
+      "file": "Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "marker": "NOS_Terminator",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.1615
+    },
+    {
+      "file": "Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "marker": "KanR_Marker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0807
+    },
+    {
+      "file": "Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "marker": "RRE_Element",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0938
+    },
+    {
+      "file": "Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "marker": "HIV1_LTR_U5_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.1876
+    },
+    {
+      "file": "pBR322_Plasmid_J01749.1.fasta",
+      "marker": "ColE1_RNA_I_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.4586
+    },
+    {
+      "file": "pBR322_Plasmid_J01749.1.fasta",
+      "marker": "p15A_Origin_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.4586
+    },
+    {
+      "file": "pBR322_Plasmid_J01749.1.fasta",
+      "marker": "AmpR_Marker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.2293
+    },
+    {
+      "file": "pBR322_Plasmid_J01749.1.fasta",
+      "marker": "pET_Origin",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.2293
+    },
+    {
+      "file": "pBR322_Plasmid_J01749.1.fasta",
+      "marker": "pBR322_Ori",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.2293
+    },
+    {
+      "file": "pBR322_Plasmid_J01749.1.fasta",
+      "marker": "AmpR_bla_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.4586
+    },
+    {
+      "file": "pDBP796mCherry_GFP_PQ628083.1.fasta",
+      "marker": "EGFP_Marker",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.5615
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "f1_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.3085
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "EGFP_Marker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.3085
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "pBR322_Ori",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.3085
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "AmpR_bla_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.6171
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "pET_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.3085
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "AmpR_Marker",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.3085
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "p15A_Origin_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.6171
+    },
+    {
+      "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+      "marker": "ColE1_RNA_I_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.6171
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "T7_Promoter",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.0689
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "pBR322_Ori",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0689
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "AmpR_bla_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.1377
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "pET_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.0689
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "AmpR_Marker",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.0689
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "p15A_Origin_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.1377
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "ColE1_RNA_I_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.1377
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "f1_Origin",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.0689
+    },
+    {
+      "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "marker": "EGFP_Marker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.0689
+    },
+    {
+      "file": "pUC19_Plasmid_L09137.1.fasta",
+      "marker": "f1_Origin",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.3723
+    },
+    {
+      "file": "pUC19_Plasmid_L09137.1.fasta",
+      "marker": "ColE1_RNA_I_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.7446
+    },
+    {
+      "file": "pUC19_Plasmid_L09137.1.fasta",
+      "marker": "p15A_Origin_Core",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.7446
+    },
+    {
+      "file": "pUC19_Plasmid_L09137.1.fasta",
+      "marker": "AmpR_Marker",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.3723
+    },
+    {
+      "file": "pUC19_Plasmid_L09137.1.fasta",
+      "marker": "pET_Origin",
+      "fwd": 1,
+      "rev": 0,
+      "total": 1,
+      "density_per_kb": 0.3723
+    },
+    {
+      "file": "pUC19_Plasmid_L09137.1.fasta",
+      "marker": "pBR322_Ori",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.3723
+    },
+    {
+      "file": "pUC19_Plasmid_L09137.1.fasta",
+      "marker": "AmpR_bla_Core",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.7446
+    },
+    {
+      "file": "SV40_Virus_NC_001669.1.fasta",
+      "marker": "SV40_Promoter",
+      "fwd": 0,
+      "rev": 2,
+      "total": 2,
+      "density_per_kb": 0.3815
+    },
+    {
+      "file": "SV40_Virus_NC_001669.1.fasta",
+      "marker": "SV40_Origin",
+      "fwd": 2,
+      "rev": 0,
+      "total": 2,
+      "density_per_kb": 0.3815
+    },
+    {
+      "file": "T7_Phage_NC_001604.1.fasta",
+      "marker": "T7_Promoter",
+      "fwd": 6,
+      "rev": 0,
+      "total": 6,
+      "density_per_kb": 0.1502
+    },
+    {
+      "file": "T7_Phage_NC_001604.1.fasta",
+      "marker": "T7_Promoter_Core",
+      "fwd": 6,
+      "rev": 0,
+      "total": 6,
+      "density_per_kb": 0.1502
+    },
+    {
+      "file": "T7_Phage_NC_001604.1.fasta",
+      "marker": "T7_Terminator",
+      "fwd": 0,
+      "rev": 1,
+      "total": 1,
+      "density_per_kb": 0.025
+    }
+  ],
+  "incorporation": [
+    {
+      "origin_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "target_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "loxP_Site",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "target_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "loxP_Site",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "target_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "loxP_Site",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "target_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "loxP_Site",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "target_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "target_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "target_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "target_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "target_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "target_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "target_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "target_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "target_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "target_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "target_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "target_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "context_count": 3,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "target_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "context_count": 3,
+      "max_risk": 71,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "T7_Promoter",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "target_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "context_count": 3,
+      "max_risk": 71,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "T7_Promoter",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "target_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "context_count": 3,
+      "max_risk": 71,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "T7_Promoter",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "target_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "context_count": 3,
+      "max_risk": 71,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "ColE1_RNA_I_Core",
+        "EGFP_Marker",
+        "T7_Promoter",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "target_file": "OUT_CLN/Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "context_count": 2,
+      "max_risk": 47,
+      "same_accession": true,
+      "foreign_markers": [
+        "His_Tag_6x",
+        "KanR_Marker",
+        "NOS_Terminator",
+        "f1_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_CLN/Morgellons_Blue_Vector_1_MN187559.1.fasta",
+      "target_file": "OUT_IND/Morgellons_Blue_IND_1_MN187559.1.fasta",
+      "context_count": 2,
+      "max_risk": 47,
+      "same_accession": true,
+      "foreign_markers": [
+        "His_Tag_6x",
+        "KanR_Marker",
+        "NOS_Terminator",
+        "f1_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_CLN/Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "target_file": "OUT_CLN/HIV1_HXB2_K03455.1.fasta",
+      "context_count": 1,
+      "max_risk": 55,
+      "same_accession": false,
+      "foreign_markers": [
+        "RRE_Element"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "target_file": "OUT_CLN/HIV1_HXB2_K03455.1.fasta",
+      "context_count": 1,
+      "max_risk": 55,
+      "same_accession": false,
+      "foreign_markers": [
+        "RRE_Element"
+      ]
+    },
+    {
+      "origin_file": "OUT_CLN/HIV1_HXB2_K03455.1.fasta",
+      "target_file": "OUT_CLN/Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "context_count": 1,
+      "max_risk": 55,
+      "same_accession": false,
+      "foreign_markers": [
+        "RRE_Element"
+      ]
+    },
+    {
+      "origin_file": "OUT_IND/Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "target_file": "OUT_CLN/Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "context_count": 1,
+      "max_risk": 55,
+      "same_accession": true,
+      "foreign_markers": [
+        "RRE_Element"
+      ]
+    },
+    {
+      "origin_file": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "target_file": "OUT_IND/Cyan_AmC_Vector_OR242270.1.fasta",
+      "context_count": 1,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "loxP_Site",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_CLN/HIV1_HXB2_K03455.1.fasta",
+      "target_file": "OUT_IND/Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "context_count": 1,
+      "max_risk": 55,
+      "same_accession": false,
+      "foreign_markers": [
+        "RRE_Element"
+      ]
+    },
+    {
+      "origin_file": "OUT_CLN/Morgellons_Blue_Vector_2_OK558602.1.fasta",
+      "target_file": "OUT_IND/Morgellons_Blue_IND_2_OK558602.1.fasta",
+      "context_count": 1,
+      "max_risk": 55,
+      "same_accession": true,
+      "foreign_markers": [
+        "RRE_Element"
+      ]
+    },
+    {
+      "origin_file": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "target_file": "OUT_IND/PmCherry_Red_Vector_MW147276.1.fasta",
+      "context_count": 1,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "EGFP_Marker",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "target_file": "OUT_IND/pBR322_Plasmid_J01749.1.fasta",
+      "context_count": 1,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "target_file": "OUT_IND/pUC19_Plasmid_L09137.1.fasta",
+      "context_count": 1,
+      "max_risk": 59,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    },
+    {
+      "origin_file": "OUT_REF/ColE1_Plasmid_J01566.1.fasta",
+      "target_file": "OUT_IND/pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+      "context_count": 1,
+      "max_risk": 71,
+      "same_accession": false,
+      "foreign_markers": [
+        "AmpR_Marker",
+        "AmpR_bla_Core",
+        "EGFP_Marker",
+        "T7_Promoter",
+        "f1_Origin",
+        "p15A_Origin_Core",
+        "pBR322_Ori",
+        "pET_Origin"
+      ]
+    }
+  ],
+  "inc_summary": {
+    "description": "Short Inc/chassis summary from forensic edge markers + file tags. Points researchers at ColE1/pMB1 vs p15A vs synthetic recomb neighborhoods. Not a classical conjugation Inc assay.",
+    "n_files": 11,
+    "family_file_counts": {},
+    "files": [
+      {
+        "file": "Cyan_AmC_Vector_OR242270.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 6,
+        "industrial_backbone_hits": 1,
+        "seamless_assembly_hits": 4,
+        "antibiotic_res_hits": 3,
+        "reporter_hits": 1
+      },
+      {
+        "file": "PmCherry_Red_Vector_MW147276.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 6,
+        "industrial_backbone_hits": 1,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 3,
+        "reporter_hits": 1
+      },
+      {
+        "file": "pMosEYFP_Yellow_Vector_PQ671729.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 6,
+        "industrial_backbone_hits": 1,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 3,
+        "reporter_hits": 1
+      },
+      {
+        "file": "pUC19_Plasmid_L09137.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 6,
+        "industrial_backbone_hits": 1,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 3,
+        "reporter_hits": 0
+      },
+      {
+        "file": "pBR322_Plasmid_J01749.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 5,
+        "industrial_backbone_hits": 1,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 3,
+        "reporter_hits": 0
+      },
+      {
+        "file": "ColE1_Plasmid_J01566.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 2,
+        "industrial_backbone_hits": 0,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 0,
+        "reporter_hits": 0
+      },
+      {
+        "file": "Curli_Fiber_CsgA_NC_000913.3.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 1,
+        "industrial_backbone_hits": 0,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 0,
+        "reporter_hits": 0
+      },
+      {
+        "file": "E_coli_K12_MG1655_U00096.3.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 1,
+        "industrial_backbone_hits": 0,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 0,
+        "reporter_hits": 0
+      },
+      {
+        "file": "Morgellons_Blue_IND_1_MN187559.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 1,
+        "industrial_backbone_hits": 0,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 1,
+        "reporter_hits": 0
+      },
+      {
+        "file": "Morgellons_Blue_Vector_1_MN187559.1.fasta",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 1,
+        "industrial_backbone_hits": 0,
+        "seamless_assembly_hits": 0,
+        "antibiotic_res_hits": 1,
+        "reporter_hits": 0
+      },
+      {
+        "file": "GCF_000325575.1_ASM32557v1_protein.faa",
+        "inc_markers": [],
+        "families": [],
+        "chassis_origin_hits": 0,
+        "industrial_backbone_hits": 0,
+        "seamless_assembly_hits": 21,
+        "antibiotic_res_hits": 0,
+        "reporter_hits": 0
+      }
+    ]
+  },
+  "n_raw_hits": 149,
+  "artifact_paths": [
+    "Forensic_Results/FINAL_GENOMIC_REPORT.xlsx",
+    "Forensic_Results/FORENSIC_LEGEND.png",
+    "Forensic_Results/Clinical_Evidence/FLANKS/AAV_Vector_Standard_AF043303.1.fasta_flanks.txt",
+    "Forensic_Results/Clinical_Evidence/FLANKS/HIV1_HXB2_K03455.1.fasta_flanks.txt",
+    "Forensic_Results/Clinical_Evidence/FLANKS/Morgellons_Blue_Vector_1_MN187559.1.fasta_flanks.txt",
+    "Forensic_Results/Clinical_Evidence/FLANKS/Morgellons_Blue_Vector_2_OK558602.1.fasta_flanks.txt",
+    "Forensic_Results/Clinical_Evidence/FWD/Clinical_Evidence_DNA_FWD_AAV_Vector_Standard_AF043303.1.fasta.txt",
+    "Forensic_Results/Clinical_Evidence/FWD/Clinical_Evidence_DNA_FWD_HIV1_HXB2_K03455.1.fasta.txt",
+    "Forensic_Results/Clinical_Evidence/FWD/Clinical_Evidence_DNA_FWD_Morgellons_Blue_Vector_1_MN187559.1.fasta.txt",
+    "Forensic_Results/Clinical_Evidence/FWD/Clinical_Evidence_DNA_FWD_Morgellons_Blue_Vector_2_OK558602.1.fasta.txt",
+    "Forensic_Results/Clinical_Evidence/WAV/AAV_Vector_Standard_AF043303.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/Candida_Albicans_Chr1_CP025158.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/FMDV_TypeO_Clinical_AY593815.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/HBV_ayw_NC_003977.2.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/HIV1_HXB2_K03455.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/HPV16_Reference_NC_001526.4.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/JockItch_T_rubrum_GG700648.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/Lentivirus_Vector_pLKO1_FJ182853.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/Lyme_B_burgdorferi_B31_AE000783.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/Morgellons_Blue_Vector_1_MN187559.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/Morgellons_Blue_Vector_2_OK558602.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/P_gingivalis_ATCC33277_CLN_AP009380.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/P_gingivalis_W83_CLN_AE015924.1.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Evidence/WAV/S_mutans_UA159_CLN_AE014133.2.fasta_AUDIO.wav",
+    "Forensic_Results/Clinical_Heatmaps/FLANKS/AAV_Vector_Standard_AF043303.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FLANKS/HIV1_HXB2_K03455.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FLANKS/Morgellons_Blue_Vector_1_MN187559.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FLANKS/Morgellons_Blue_Vector_2_OK558602.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FWD/AAV_Vector_Standard_AF043303.1.fasta_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FWD/HIV1_HXB2_K03455.1.fasta_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FWD/JockItch_T_rubrum_GG700648.1.fasta_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FWD/Morgellons_Blue_Vector_1_MN187559.1.fasta_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/FWD/Morgellons_Blue_Vector_2_OK558602.1.fasta_HEATMAP.png",
+    "Forensic_Results/Clinical_Heatmaps/REV/Morgellons_Blue_Vector_1_MN187559.1.fasta_HEATMAP.png",
+    "Forensic_Results/Clinical_Spectrograms/FLANKS/AAV_Vector_Standard_AF043303.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Clinical_Spectrograms/FLANKS/HIV1_HXB2_K03455.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Clinical_Spectrograms/FLANKS/Morgellons_Blue_Vector_1_MN187559.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Clinical_Spectrograms/FLANKS/Morgellons_Blue_Vector_2_OK558602.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/AAV_Vector_Standard_AF043303.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/Candida_Albicans_Chr1_CP025158.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/FMDV_TypeO_Clinical_AY593815.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/HBV_ayw_NC_003977.2.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/HIV1_HXB2_K03455.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/HPV16_Reference_NC_001526.4.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/JockItch_T_rubrum_GG700648.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/Lentivirus_Vector_pLKO1_FJ182853.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/Lyme_B_burgdorferi_B31_AE000783.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/Morgellons_Blue_Vector_1_MN187559.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/Morgellons_Blue_Vector_2_OK558602.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/P_gingivalis_ATCC33277_CLN_AP009380.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/P_gingivalis_W83_CLN_AE015924.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/FWD/S_mutans_UA159_CLN_AE014133.2.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/AAV_Vector_Standard_AF043303.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/Candida_Albicans_Chr1_CP025158.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/FMDV_TypeO_Clinical_AY593815.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/HBV_ayw_NC_003977.2.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/HIV1_HXB2_K03455.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/HPV16_Reference_NC_001526.4.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/JockItch_T_rubrum_GG700648.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/Lentivirus_Vector_pLKO1_FJ182853.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/Lyme_B_burgdorferi_B31_AE000783.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/Morgellons_Blue_Vector_1_MN187559.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/Morgellons_Blue_Vector_2_OK558602.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/P_gingivalis_ATCC33277_CLN_AP009380.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/P_gingivalis_W83_CLN_AE015924.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Clinical_Spectrograms/REV/S_mutans_UA159_CLN_AE014133.2.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Global_Evidence/CROSS_MATCH_LOG.txt",
+    "Forensic_Results/Global_Evidence/CROSS_SIMILARITY_TRACKER.json",
+    "Forensic_Results/Global_Evidence/FLANK_INCORPORATION_WARNINGS.json",
+    "Forensic_Results/Global_Evidence/FLANK_INCORPORATION_WARNINGS.txt",
+    "Forensic_Results/Global_Evidence/RUN_CONFIG_STAMP.json",
+    "Forensic_Results/Global_Evidence/TRIAGE_SUMMARY.json",
+    "Forensic_Results/Global_Evidence/composition/AAV2_Vector_AF043303.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/AAV2_Vector_AF043303.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/AAV_Vector_Standard_AF043303.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/AAV_Vector_Standard_AF043303.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Aspergillus_Niger_Super_AM270980.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Aspergillus_Niger_Super_AM270980.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/A_niger_Contig_AM270980.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/A_niger_Contig_AM270980.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/B_subtilis_168_WT_AL009126.3.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/B_subtilis_168_WT_AL009126.3.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Candida_Albicans_Chr1_CP025158.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Candida_Albicans_Chr1_CP025158.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Cellulose_Synthase_Ind_CP000133.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Cellulose_Synthase_Ind_CP000133.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/ColE1_Plasmid_J01566.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/ColE1_Plasmid_J01566.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Curli_Fiber_CsgA_NC_000913.3.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Curli_Fiber_CsgA_NC_000913.3.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Cyan_AmC_Vector_OR242270.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Cyan_AmC_Vector_OR242270.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/C_glutamicum_ATCC13032_BX927147.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/C_glutamicum_ATCC13032_BX927147.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Extremophile_Basal_DNA_AE009950.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Extremophile_Basal_DNA_AE009950.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/E_coli_K12_MG1655_U00096.3.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/E_coli_K12_MG1655_U00096.3.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/FMDV_TypeO_Clinical_AY593815.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/FMDV_TypeO_Clinical_AY593815.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/GCF_000325575.1_ASM32557v1_protein.faa.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/GCF_000325575.1_ASM32557v1_protein.faa.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/GCF_000325575.1_ASM32557v1_rna_from_genomic.fna.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/GCF_000325575.1_ASM32557v1_rna_from_genomic.fna.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/GRCh38_latest_rna.fna.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/GRCh38_latest_rna.fna.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/HBV_ayw_NC_003977.2.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/HBV_ayw_NC_003977.2.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Historical_Control_1918_AL513382.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Historical_Control_1918_AL513382.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/HIV1_HXB2_K03455.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/HIV1_HXB2_K03455.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/HPV16_Reference_NC_001526.4.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/HPV16_Reference_NC_001526.4.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Human_Mitochondrion_NC_012920.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Human_Mitochondrion_NC_012920.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Human_Reference_Decoy_NC_000021.9.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Human_Reference_Decoy_NC_000021.9.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/human_t2t.fna.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/human_t2t.fna.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/JockItch_T_rubrum_GG700648.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/JockItch_T_rubrum_GG700648.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Lambda_Phage_NC_001416.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Lambda_Phage_NC_001416.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Lentivirus_Vector_pLKO1_FJ182853.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Lentivirus_Vector_pLKO1_FJ182853.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Lyme_B_burgdorferi_B31_AE000783.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Lyme_B_burgdorferi_B31_AE000783.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/L_plantarum_RS20D_CP042255.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/L_plantarum_RS20D_CP042255.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/L_plantarum_WCFS1_2003_AL935263.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/L_plantarum_WCFS1_2003_AL935263.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/mE2_Green_Vector_PV867284.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/mE2_Green_Vector_PV867284.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_IND_1_MN187559.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_IND_1_MN187559.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_IND_2_OK558602.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_IND_2_OK558602.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_Vector_1_MN187559.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_Vector_1_MN187559.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_Vector_2_OK558602.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Morgellons_Blue_Vector_2_OK558602.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Pantoea_Plasmid_pCFSAN_CP034478.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Pantoea_Plasmid_pCFSAN_CP034478.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/PASylation_Cloaking_KY053151.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/PASylation_Cloaking_KY053151.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/pBR322_Plasmid_J01749.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/pBR322_Plasmid_J01749.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/pDBP796mCherry_GFP_PQ628083.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/pDBP796mCherry_GFP_PQ628083.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/PhiX174_Phage_NC_001422.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/PhiX174_Phage_NC_001422.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/PmCherry_Red_Vector_MW147276.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/PmCherry_Red_Vector_MW147276.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/pMosEYFP_Yellow_Vector_PQ671729.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/pMosEYFP_Yellow_Vector_PQ671729.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/pUC19_Plasmid_L09137.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/pUC19_Plasmid_L09137.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_ATCC33277_CLN_AP009380.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_ATCC33277_CLN_AP009380.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_ATCC33277_REF_AP009380.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_ATCC33277_REF_AP009380.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_W83_CLN_AE015924.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_W83_CLN_AE015924.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_W83_REF_AE015924.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/P_gingivalis_W83_REF_AE015924.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/P_pastoris_GS115_FN392319.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/P_pastoris_GS115_FN392319.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Spider_Silk_Synthetic_FJ973216.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Spider_Silk_Synthetic_FJ973216.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/SV40_Virus_NC_001669.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/SV40_Virus_NC_001669.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/S_aureus_NCTC8325_CP000253.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/S_aureus_NCTC8325_CP000253.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/S_mutans_UA159_Ancient_AE014133.2.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/S_mutans_UA159_Ancient_AE014133.2.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/S_mutans_UA159_CLN_AE014133.2.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/S_mutans_UA159_CLN_AE014133.2.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/T7_Phage_NC_001604.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/T7_Phage_NC_001604.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/V_natriegens_Vmax_CP016345.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/V_natriegens_Vmax_CP016345.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Evidence/composition/Yeast_Mitochondrion_NC_001224.1.fasta.TARGET_COUNTS.json",
+    "Forensic_Results/Global_Evidence/composition/Yeast_Mitochondrion_NC_001224.1.fasta.TARGET_COUNTS.txt",
+    "Forensic_Results/Global_Heatmaps/INCORPORATION_GRID.png",
+    "Forensic_Results/Global_Heatmaps/WATERFALL_SUMMARY.png",
+    "Forensic_Results/Industrial_Evidence/FLANKS/AAV2_Vector_AF043303.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FLANKS/Cyan_AmC_Vector_OR242270.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FLANKS/Morgellons_Blue_IND_1_MN187559.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FLANKS/Morgellons_Blue_IND_2_OK558602.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FLANKS/pBR322_Plasmid_J01749.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FLANKS/PmCherry_Red_Vector_MW147276.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FLANKS/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FLANKS/pUC19_Plasmid_L09137.1.fasta_flanks.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_AAV2_Vector_AF043303.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_Cyan_AmC_Vector_OR242270.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_Morgellons_Blue_IND_1_MN187559.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_Morgellons_Blue_IND_2_OK558602.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_pBR322_Plasmid_J01749.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_PmCherry_Red_Vector_MW147276.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_pMosEYFP_Yellow_Vector_PQ671729.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/FWD/Industrial_Evidence_DNA_FWD_pUC19_Plasmid_L09137.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/REV/Industrial_Evidence_DNA_REV_Cyan_AmC_Vector_OR242270.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/REV/Industrial_Evidence_DNA_REV_pBR322_Plasmid_J01749.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/REV/Industrial_Evidence_DNA_REV_PmCherry_Red_Vector_MW147276.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/REV/Industrial_Evidence_DNA_REV_pMosEYFP_Yellow_Vector_PQ671729.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/REV/Industrial_Evidence_DNA_REV_pUC19_Plasmid_L09137.1.fasta.txt",
+    "Forensic_Results/Industrial_Evidence/WAV/AAV2_Vector_AF043303.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Aspergillus_Niger_Super_AM270980.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/A_niger_Contig_AM270980.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Cellulose_Synthase_Ind_CP000133.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Curli_Fiber_CsgA_NC_000913.3.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Cyan_AmC_Vector_OR242270.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/C_glutamicum_ATCC13032_BX927147.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/E_coli_K12_MG1655_U00096.3.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/L_plantarum_RS20D_CP042255.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/mE2_Green_Vector_PV867284.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Morgellons_Blue_IND_1_MN187559.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Morgellons_Blue_IND_2_OK558602.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Pantoea_Plasmid_pCFSAN_CP034478.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/PASylation_Cloaking_KY053151.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/pBR322_Plasmid_J01749.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/pDBP796mCherry_GFP_PQ628083.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/PmCherry_Red_Vector_MW147276.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/pUC19_Plasmid_L09137.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/P_pastoris_GS115_FN392319.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/Spider_Silk_Synthetic_FJ973216.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/T7_Phage_NC_001604.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Evidence/WAV/V_natriegens_Vmax_CP016345.1.fasta_AUDIO.wav",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/AAV2_Vector_AF043303.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/Cyan_AmC_Vector_OR242270.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/Morgellons_Blue_IND_1_MN187559.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/Morgellons_Blue_IND_2_OK558602.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/pBR322_Plasmid_J01749.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/PmCherry_Red_Vector_MW147276.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FLANKS/pUC19_Plasmid_L09137.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/AAV2_Vector_AF043303.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/Cellulose_Synthase_Ind_CP000133.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/Curli_Fiber_CsgA_NC_000913.3.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/Cyan_AmC_Vector_OR242270.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/C_glutamicum_ATCC13032_BX927147.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/E_coli_K12_MG1655_U00096.3.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/mE2_Green_Vector_PV867284.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/Morgellons_Blue_IND_1_MN187559.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/Morgellons_Blue_IND_2_OK558602.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/pBR322_Plasmid_J01749.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/pDBP796mCherry_GFP_PQ628083.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/PmCherry_Red_Vector_MW147276.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/pUC19_Plasmid_L09137.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/FWD/T7_Phage_NC_001604.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/Cellulose_Synthase_Ind_CP000133.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/Cyan_AmC_Vector_OR242270.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/C_glutamicum_ATCC13032_BX927147.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/Morgellons_Blue_IND_1_MN187559.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/pBR322_Plasmid_J01749.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/PmCherry_Red_Vector_MW147276.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/pUC19_Plasmid_L09137.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Heatmaps/REV/T7_Phage_NC_001604.1.fasta_HEATMAP.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/AAV2_Vector_AF043303.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/Cyan_AmC_Vector_OR242270.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/Morgellons_Blue_IND_1_MN187559.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/Morgellons_Blue_IND_2_OK558602.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/pBR322_Plasmid_J01749.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/PmCherry_Red_Vector_MW147276.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FLANKS/pUC19_Plasmid_L09137.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/AAV2_Vector_AF043303.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Aspergillus_Niger_Super_AM270980.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/A_niger_Contig_AM270980.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Cellulose_Synthase_Ind_CP000133.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Curli_Fiber_CsgA_NC_000913.3.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Cyan_AmC_Vector_OR242270.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/C_glutamicum_ATCC13032_BX927147.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/E_coli_K12_MG1655_U00096.3.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/L_plantarum_RS20D_CP042255.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/mE2_Green_Vector_PV867284.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Morgellons_Blue_IND_1_MN187559.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Morgellons_Blue_IND_2_OK558602.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Pantoea_Plasmid_pCFSAN_CP034478.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/PASylation_Cloaking_KY053151.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/pBR322_Plasmid_J01749.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/pDBP796mCherry_GFP_PQ628083.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/PmCherry_Red_Vector_MW147276.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/pUC19_Plasmid_L09137.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/P_pastoris_GS115_FN392319.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/Spider_Silk_Synthetic_FJ973216.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/T7_Phage_NC_001604.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/FWD/V_natriegens_Vmax_CP016345.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/AAV2_Vector_AF043303.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Aspergillus_Niger_Super_AM270980.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/A_niger_Contig_AM270980.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Cellulose_Synthase_Ind_CP000133.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Curli_Fiber_CsgA_NC_000913.3.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Cyan_AmC_Vector_OR242270.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/C_glutamicum_ATCC13032_BX927147.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/E_coli_K12_MG1655_U00096.3.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/L_plantarum_RS20D_CP042255.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/mE2_Green_Vector_PV867284.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Morgellons_Blue_IND_1_MN187559.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Morgellons_Blue_IND_2_OK558602.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Pantoea_Plasmid_pCFSAN_CP034478.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/PASylation_Cloaking_KY053151.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/pBR322_Plasmid_J01749.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/pDBP796mCherry_GFP_PQ628083.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/PmCherry_Red_Vector_MW147276.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/pMosEYFP_Yellow_Vector_PQ671729.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/pUC19_Plasmid_L09137.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/P_pastoris_GS115_FN392319.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/Spider_Silk_Synthetic_FJ973216.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/T7_Phage_NC_001604.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Industrial_Spectrograms/REV/V_natriegens_Vmax_CP016345.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Evidence/FLANKS/ColE1_Plasmid_J01566.1.fasta_flanks.txt",
+    "Forensic_Results/Reference_Evidence/FLANKS/human_t2t.fna_flanks.txt",
+    "Forensic_Results/Reference_Evidence/FLANKS/SV40_Virus_NC_001669.1.fasta_flanks.txt",
+    "Forensic_Results/Reference_Evidence/FWD/Reference_Evidence_DNA_FWD_SV40_Virus_NC_001669.1.fasta.txt",
+    "Forensic_Results/Reference_Evidence/REV/Reference_Evidence_DNA_REV_ColE1_Plasmid_J01566.1.fasta.txt",
+    "Forensic_Results/Reference_Evidence/REV/Reference_Evidence_DNA_REV_human_t2t.fna.txt",
+    "Forensic_Results/Reference_Evidence/WAV/B_subtilis_168_WT_AL009126.3.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/ColE1_Plasmid_J01566.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/Extremophile_Basal_DNA_AE009950.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/GCF_000325575.1_ASM32557v1_protein.faa_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/GCF_000325575.1_ASM32557v1_rna_from_genomic.fna_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/Historical_Control_1918_AL513382.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/Human_Mitochondrion_NC_012920.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/Human_Reference_Decoy_NC_000021.9.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/human_t2t.fna_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/Lambda_Phage_NC_001416.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/L_plantarum_WCFS1_2003_AL935263.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/PhiX174_Phage_NC_001422.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/P_gingivalis_ATCC33277_REF_AP009380.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/P_gingivalis_W83_REF_AE015924.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/SV40_Virus_NC_001669.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/S_aureus_NCTC8325_CP000253.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/S_mutans_UA159_Ancient_AE014133.2.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Evidence/WAV/Yeast_Mitochondrion_NC_001224.1.fasta_AUDIO.wav",
+    "Forensic_Results/Reference_Heatmaps/FLANKS/ColE1_Plasmid_J01566.1.fasta_FLANKS_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/FWD/GCF_000325575.1_ASM32557v1_protein.faa_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/FWD/GCF_000325575.1_ASM32557v1_rna_from_genomic.fna_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/FWD/GRCh38_latest_rna.fna_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/FWD/Historical_Control_1918_AL513382.1.fasta_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/FWD/Human_Reference_Decoy_NC_000021.9.fasta_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/FWD/human_t2t.fna_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/FWD/SV40_Virus_NC_001669.1.fasta_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/REV/ColE1_Plasmid_J01566.1.fasta_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/REV/GCF_000325575.1_ASM32557v1_rna_from_genomic.fna_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/REV/GRCh38_latest_rna.fna_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/REV/human_t2t.fna_HEATMAP.png",
+    "Forensic_Results/Reference_Heatmaps/REV/SV40_Virus_NC_001669.1.fasta_HEATMAP.png",
+    "Forensic_Results/Reference_Spectrograms/FLANKS/ColE1_Plasmid_J01566.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Reference_Spectrograms/FLANKS/human_t2t.fna_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Reference_Spectrograms/FLANKS/SV40_Virus_NC_001669.1.fasta_FEATURE_SPECTROGRAM_FLANKS.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/B_subtilis_168_WT_AL009126.3.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/ColE1_Plasmid_J01566.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/Extremophile_Basal_DNA_AE009950.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/GCF_000325575.1_ASM32557v1_protein.faa_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/GCF_000325575.1_ASM32557v1_rna_from_genomic.fna_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/GRCh38_latest_rna.fna_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/Historical_Control_1918_AL513382.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/Human_Mitochondrion_NC_012920.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/Human_Reference_Decoy_NC_000021.9.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/human_t2t.fna_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/Lambda_Phage_NC_001416.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/L_plantarum_WCFS1_2003_AL935263.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/PhiX174_Phage_NC_001422.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/P_gingivalis_ATCC33277_REF_AP009380.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/P_gingivalis_W83_REF_AE015924.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/SV40_Virus_NC_001669.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/S_aureus_NCTC8325_CP000253.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/S_mutans_UA159_Ancient_AE014133.2.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/FWD/Yeast_Mitochondrion_NC_001224.1.fasta_FEATURE_SPECTROGRAM.png",
+    "Forensic_Results/Reference_Spectrograms/REV/B_subtilis_168_WT_AL009126.3.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/ColE1_Plasmid_J01566.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/Extremophile_Basal_DNA_AE009950.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/GCF_000325575.1_ASM32557v1_rna_from_genomic.fna_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/GRCh38_latest_rna.fna_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/Historical_Control_1918_AL513382.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/Human_Mitochondrion_NC_012920.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/Human_Reference_Decoy_NC_000021.9.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/human_t2t.fna_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/Lambda_Phage_NC_001416.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/L_plantarum_WCFS1_2003_AL935263.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/PhiX174_Phage_NC_001422.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/P_gingivalis_ATCC33277_REF_AP009380.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/P_gingivalis_W83_REF_AE015924.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/SV40_Virus_NC_001669.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/S_aureus_NCTC8325_CP000253.1.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/S_mutans_UA159_Ancient_AE014133.2.fasta_FEATURE_SPECTROGRAM_RC.png",
+    "Forensic_Results/Reference_Spectrograms/REV/Yeast_Mitochondrion_NC_001224.1.fasta_FEATURE_SPECTROGRAM_RC.png"
+  ]
+}
