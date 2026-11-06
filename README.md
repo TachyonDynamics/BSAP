@@ -41,7 +41,6 @@ Open **http://localhost:8501**, pick a **target panel** if desired, then **Run F
 
 The website (`index.html`) is optional. It reads `Forensic_Results/Global_Evidence/portal_snapshot.json`
 (and `Audit_Library/` when present). You can also open it from the Streamlit sidebar button.
-There is no `Launch_BSAP.py` / `APPportal.py` entry point.
 
 ---
 
